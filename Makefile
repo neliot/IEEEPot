@@ -1,4 +1,4 @@
-main: honeypot.tex honeypot.bib Images/HP1.eps Images/HP2.eps Images/HP3.eps
+main: honeypot.tex honeypot.bib Images/HP1.eps Images/HP2.eps Images/HP3.eps Images/Honeypot1.eps Images/Infrastructure.eps Images/Infrastructure2.eps Images/Throttle.eps Images/Forward.eps Images/NE.eps Images/DK.eps Images/MB.eps
 	latex honeypot
 	bibtex honeypot
 	latex honeypot
@@ -14,6 +14,30 @@ Images/HP2.eps: Images/HP2.jpg
 
 Images/HP3.eps: Images/HP3.jpg
 	convert Images/HP3.jpg Images/HP3.eps
+
+Images/NE.eps: Images/NE.jpg
+	convert Images/NE.jpg Images/NE.eps
+
+Images/DK.eps: Images/DK.jpg
+	convert Images/DK.jpg Images/DK.eps
+
+Images/MB.eps: Images/MB.jpg
+	convert Images/MB.jpg Images/MB.eps
+
+Images/Honeypot1.eps: Images/Honeypot1.dia
+	dia -t eps -e Images/Honeypot1.eps -n Images/Honeypot1.dia
+
+Images/Infrastructure2.eps: Images/Infrastructure2.dia
+	dia -t eps -e Images/Infrastructure2.eps -n Images/Infrastructure2.dia
+
+Images/Infrastructure.eps: Images/Infrastructure.dia
+	dia -t eps -e Images/Infrastructure.eps -n Images/Infrastructure.dia
+
+Images/Throttle.eps: Images/Throttle.dia
+	dia -t eps -e Images/Throttle.eps -n Images/Throttle.dia
+
+Images/Forward.eps: Images/Forward.dia
+	dia -t eps -e Images/Forward.eps -n Images/Forward.dia
 
 main_dvips: honeypot.tex honeypot.bib
 	latex honeypot

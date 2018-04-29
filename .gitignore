@@ -1,0 +1,11 @@
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.log
+*.pdf
+*.ps
+*.swp
+*.tar
+Images/*.eps
+.vscode/*

@@ -428,10 +428,10 @@ together with sandboxed deployment of \texttt{LIHV} and \texttt{HILV} honeypots 
 a stimulating, cost-effective environment for cybersecurity studies
 in a University setting.
 
-The paper is structured as follows Section~\ref{sec:RelatedWork} discusses the current research into the develoment and deployment of cyber security related implementations. Section~\ref{sec:TeachingRequire} discusses the requirements of a flexible teaching platform for networking and cyber security. Section~\ref{sec:HoneyArch} discusses the two main architectures that are needed to support networking and cyber security in higher education. Section~\ref{sec:Results} discusses the effect of the deployment of the technologies and the capabilities it has developed for the University in terms of teaching networking and cyber security. Section~\ref{sec:ConclusionFuture} summarises the findings and identifies future work that still needs to be investigated or developed.
+The paper is structured as follows ...... (to complete).
 
-\section{Related Work}\label{sec:RelatedWork}
-Romney and Lanoy~\cite{LR:06}, Hiber et al.~\cite{HRS:08}, Wannous and Nakano~\cite{WN:10} and Marsa et al.~\cite{MGDL:13} discuss the use of virtual environments as a mechanism to deploy laboratory/honeypot platforms and networking architectures. Virtualisation works well for general network infrastructure simulation to assist in the design of an architecture however when using virtualisation in the context of cyber security virtualisation can introduce limitations. The limitations extend to deployment, resource utilisation, and data capture. The main problems arise from the fact that the resources in a virtual environment are shared. A laboratory based on VLAN technology supporting multiple simultaneous experiments may produce unexpected results due to cross boundary impacts such as the exhaustion of a MAC table or backplane capabilities causing packet loss in a layer 2 switch during a DoS experiment. MAC Flooding experiments executed on a VLAN can disable a switch due to the VLAN trunk's MAC table exhausting the switches memory. Experiments in a virtual environment may breach a sandboxed virtual host which could impact on other experiments. The physical networking components of a virtual server are often shared across the virtual hosts even though the hosts use virtualised addresses, this can produce unexpected results if simultaneous experiment are executed. When conducting remote attack experiments the network capture capabilities are also complicated by virtualisation due to the mixture of traffic from multiple experiments. A simple reconnaissance scan of a network could compromise other experiments.
+\section{Related Work}
+Romney and Lanoy~\cite{LR:06}, Hiber et al.~\cite{HRS:08}, and Wannous and Nakano~\cite{WN:10} discuss the use of virtual environments as a mechanism to deploy laboratory/honeypot platforms and networking architectures. Virtualisation works well for general network infrastructure simulation to assist in the design of an architecture however when using virtualisation in the context of cyber security virtualisation can introduce limitations. the limitations extend to deployment, resource utilisation, and data capture. The main problems arise from the fact that the resources in a virtual environment are shared. A laboratory based on VLAN technology supporting multiple simultaneous experiments may produce unexpected results due to cross boundary impacts such as the exhaustion of a MAC table or backplane capabilities causing packet loss in a layer 2 switch during a DoS experiment. MAC Flooding experiments executed on a VLAN can disable a switch due to the VLAN trunk's MAC table exhausting the switches memory. Experiments in a virtual environment may breach a sandboxed virtual host which could impact on other experiments. The physical networking components of a virtual server are often shared across the virtual hosts even though the hosts use virtualised addresses, this can produce unexpected results if simultaneous experiment are executed. When conducting remote attack experiments the network capture capabilities are also complicated by virtualisation due to the mixture of traffic from multiple experiments. A simple reconnaissance scan of a network could compromise other experiments.
 
 Randel et al.~\cite{ACG:06} describes a more independent hardware solution however it still requires VLAN technologies and requires a large number of routers, switches and servers to provide the environment. The environment is configurable but network infrastructure attack-based research could compromise multiple users.
 
@@ -439,7 +439,10 @@ Salah et al.~\cite{SHZ:15} describe the use of cloud services such as Amazon Ela
 
 Lee et al.~\cite{LUFC:11} describe a very popular approach to a competition-based network configuration where a small network of physical devices (usually PCs) provides an environment where teams can compete in activities such as capture-the-flag or time trials. The network is a simple LAN with multiple clients and servers located on a subnet. From a cyber security research perspective the infrastructure provides limited accesss to network traffic for specifc attack analysis and therefore limits its effectiveness as an analysis tool. The environment does provide users with a platform for trying out attacks which are usually using from well established toolsets such as those provided by the Kali~\cite{OS:17} disto. This type of platform works well for events such as those organised by the Cyber Security Challenge UK organisation~\cite{CSCUK:18} where Cyber Security is a competitive activity rather than a research topic.   
 
-Aspects of the deployment discussed in this paper are similar to those of Romney and Lanoy, Hiber et al., Wannous and Nakano, and Marsa et al. in the using virtualisation. In the context of this paper virtualisation is used to add resources to the architecture. The deployment is similar to Randel et al. through the use of a hardware based solution but the focus of this paper is on the \textit{simultaneous} usage of multiple research honeypots in a laborartory environment for undergraduate and post-graduate students. The paper extends their work by deploying the honeypot environments as a descrete physical configuration to increase their potential as a learning environment. Spitner~\cite{LS:03} discusses many cybersecurity attack techniques and the physically deployed \texttt{HILV} lends itself to the types of attacks he discusses. This includes deploying a \texttt{LIHV} honeypot within the laboratory and allowing access from the laboratory to specific services or equipment within it to emulate ``real'' attacks.
+Aspects of the deployment discussed in this paper are similar to
+those of Romney and Lanoy, Hiber et al., and, Wannous and Nakano in the use of virtualisation to add resources to the architecture and to Randel et al. through the use of a hardware based solution but the focus of this paper is on the \textit{simultaneous} usage of multiple research honeypots in a laborartory environment for undergraduate and post-graduate students. The paper extends their work by
+deploying the honeypot environments as a physical configuration to increase their potential as a learning environment. Spitner~\cite{LS:03}
+discusses many cybersecurity attack techniques and the physically deployed \texttt{HILV} lends itself to the types of attacks he discusses. This includes deploying a \texttt{LIHV} honeypot within the laboratory and allowing access from the laboratory to specific services or equipment within it to emulate ``real'' attacks.
 
 The honeypot designs in this paper also extend the ability to deploy multi-honeypot
 experimental environments as discussed by Duffany~\cite{JD:08}. This is
@@ -447,7 +450,7 @@ achieved by reducing the cost of the \texttt{HILV} honeypot architecture to incr
 number of available honeypots for a distributed data capture deployment. The
 proposals in this paper also make the \texttt{HILV} honeypot architecture small
 enough to be portable, and therefore suitable for deployment in 
-multiple locations. If this architecture is combined with the structured network environemnt and the \texttt{LIHV} honeypot architecture the result is a highly configurable environment for running many different networking and cyber security based projects and activities.
+multiple locations. If this architecture is combined with the structured network environemnt and the \texttt{LIHV} honeypot architecture the result is a highly configurable environemtn for running mant different cyber security based projects and activities.
 
 \section{Laboratory Requirements}\label{sec:TeachingRequire}
 
@@ -460,7 +463,8 @@ studies of networks, operating systems and network services. Students require
 administrative access to the basic networking equipment such as routers,
 switches, and desktop machines for installation and configuration of general
 purpose tools and virtual environments. These activities would normally be
-prohibited on a University campus network~\cite{MGDL:13}. This is the case at Northumbria University although limited access is provided to staff rooms via campus VLAN connections, however, these connections are to phased out in 2018. There also needs to be a facility to quickly restore a standard software environment to all devices.
+prohibited on a University campus network. It should be possible to quickly
+restore a standard software environment to all devices.
 
 \subsubsection{Requirement 2.}
 The laboratory network should implement a security policy, independent of the
@@ -529,7 +533,7 @@ The flexible laboratory environment needs to provide a re-configurable physical
 networking layer. This is provided by a structured cabling architecture as
 shown in~Fig.~\ref{fig:Overview1}.
 
-\begin{figure*}[ht]
+\begin{figure*}[h]
 \begin{center}
 	\includegraphics[scale=0.5]{Images/Infrastructure.eps}
 \caption{General networking laboratory overview}
@@ -883,7 +887,7 @@ support directed learning tasks and also to support collaborative ventures.
 \end{center}
 \end{figure}
 
-\section{Operational Results\label{sec:Results}}
+\section{Operational Results\label{Results}}
 
 The general laboratory infrastructure has been in place, and actively used, for
 10 years. The \texttt{LIHV} honeypot has been in place for 9 years. The
@@ -992,7 +996,7 @@ projects.  A sample of these projects is described below.
        executing an attack and analysing the bandwidth effect of the network.
 \end{itemize}
 
-\section{Conclusion and Future Work\label{sec:ConclusionFuture}}
+\section{Conclusion and Future Work\label{Future}}
 
 The development of the \texttt{HILV} honeypot environment has proved successful
 for both teaching and research. The cost of the deployment has been reduced

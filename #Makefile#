@@ -1,4 +1,4 @@
-main: honeypot.tex honeypot.bib Images/HP1.eps Images/HP2.eps Images/HP3.eps Images/Honeypot1.eps Images/Cabinet.eps Images/CommsCabinet.eps Images/Infrastructure.eps Images/Infrastructure2.eps Images/Throttle.eps Images/Forward.eps Images/NetworkLogical.eps Images/NE.eps Images/DK.eps Images/MB.eps
+main: honeypot.tex honeypot.bib Images/HP1.eps Images/HP2.eps Images/HP3.eps Images/Honeypot1.eps Images/Cabinet.eps Images/Infrastructure.eps Images/Infrastructure2.eps Images/Throttle.eps Images/Forward.eps Images/NE.eps Images/DK.eps Images/MB.eps
 	latex honeypot
 	bibtex honeypot
 	latex honeypot
@@ -13,13 +13,8 @@ Images/HP2.eps: Images/HP2.jpg
 	convert Images/HP2.jpg Images/HP2.eps
 
 Images/HP3.eps: Images/HP3.jpg
-	convert Images/HP3.jpg Images/HP3.eps
-
-Images/Cabinet.eps: Images/Cabinet.jpg
+	convert Imag1
 	convert Images/Cabinet.jpg Images/Cabinet.eps
-
-Images/CommsCabinet.eps: Images/CommsCabinet.jpg
-	convert Images/CommsCabinet.jpg Images/CommsCabinet.eps
 
 Images/NE.eps: Images/NE.jpg
 	convert Images/NE.jpg Images/NE.eps
@@ -32,9 +27,6 @@ Images/MB.eps: Images/MB.jpg
 
 Images/Honeypot1.eps: Images/Honeypot1.dia
 	dia -t eps -e Images/Honeypot1.eps -n Images/Honeypot1.dia
-
-Images/NetworkLogical.eps: Images/NetworkLogical.dia
-	dia -t eps -e Images/NetworkLogical.eps -n Images/NetworkLogical.dia
 
 Images/Infrastructure2.eps: Images/Infrastructure2.dia
 	dia -t eps -e Images/Infrastructure2.eps -n Images/Infrastructure2.dia

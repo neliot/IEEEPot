@@ -580,13 +580,6 @@ cabinet.
   \end{minipage}
 \end{figure}
 
-%\begin{figure*}[ht]
-%  \begin{center}
-%  \caption{General networking laboratory cabinet}
-%  \label{fig:Cabinet1}
-%  \end{center}
-%\end{figure*}
-
 The structured cabling allows the resources of each cabinet within the
 laboratory to be linked to the desktop through structured cabling ports.
 Cross-cabinet connections ensure specialist resources are flexibly available to
@@ -816,7 +809,7 @@ normally referred to as a \texttt{DMZ} (demilitarised zone) redirection~\cite{MB
 A key component of the \texttt{HILV} honeypot is a commercially available,
 8-port, managed switch. The switch supports layer 2 management~\cite{ST:98} to
 provide two specific technologies: port mirroring and port throttling. Suitable
-switches include HP 2530-08~\cite{HP:17} and TP-LINK TL-SG2008~\cite{TP:17}.
+switches include \texttt{HP 2530-08}~\cite{HP:17} and \texttt{TP-LINK TL-SG2008}~\cite{TP:17}.
 The combination of port mirroring and port throttling provides a reliable architecture
 for packet capture. 
 \newline\newline
@@ -832,7 +825,7 @@ port, as shown in Figs.~\ref{fig:HPOverview} and~\ref{fig:throttling}. This
 allows all the network activity to be captured and analysed~(\emph{Requirement
 8}). Switches can implement mirroring in one of two ways. Firstly, a monitor-only
 port can be provided, where the transmission capability of the port is removed,
-(as in the case of an HP 1810-G). This type of configuration prevents the
+(as in the case of an \texttt{HP 1810-G}). This type of configuration prevents the
 monitoring device from adding traffic to the network. Alternatively, some
 manufacturers configure the mirroring port to offer full transmit/receive
 functionality, in addition to the mirroring capability (as in the case of a
@@ -928,16 +921,121 @@ The use of Raspberry Pi boards in the \texttt{HILV} honeypots has allowed
 diverse subjects to be taught more easily due to their use of removable media
 to store the operating system. The setup time for laboratories and teaching
 sessions has been dramatically reduced compared to our previous approach of
-using small clusters of PC's with removable drives.
+using small clusters of PC's with removable drives, this is reflected in the students response to the configuration of the \texttt{LIHV} as shown in Fig.~\ref{tab:Useful}
 
 There have been several hardware changes to the \texttt{HILV} honeypots over
 this time but the basic architecture has remained unchanged. The latest change
 involved an upgrade from Raspberry Pi 2 to Raspberry Pi 3. The cost of layer 2
 switches and their availability has also improved and they are now more
-affordable. As new honeypots are fabricated, TP-LINK switches are being used in
-preference to the more expensive HP switches. The TP-LINK switches do not
+affordable. As new honeypots are fabricated, \texttt{TP-LINK} switches are being used in
+preference to the more expensive HP switches. The \texttt{TP-LINK} switches do not
 provide a fully implemented monitor port; this requires the inclusion of a
-network tap as shown in Fig.~\ref{fig:HPOverview}.
+network tap as shown in Table~\ref{fig:HPOverview}.
+
+In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. Table~\ref{tab:Useful} shows ...
+
+\begin{table}[ht]
+  \centering
+  \caption{Q1. How useful was the honeypot in your studies?}
+  \label{tab:Useful}
+  \begin{tabular}{|l|c|}
+  \hline
+%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
+  Excellent & 40.00\% \\ \hline
+  Very Good & 46.67\% \\ \hline
+  Okay      & 13.33\% \\ \hline
+  Poor      & 0\%     \\ \hline
+  Useless   & 0\%     \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption{Q2. What was the Honeypot like to setup?}
+  \label{tab:Setup}
+  \begin{tabular}{|l|c|}
+  \hline
+%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
+  Very Easy  & 16.67\% \\ \hline
+  Quite Easy & 40.00\% \\ \hline
+  Okay       & 43.33\% \\ \hline
+  Hard       & 0\%     \\ \hline
+  Very Hard  & 0\%     \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption{Q3. Would you use the honeypot for further studies if you had the opportunity?}
+  \label{tab:UseAgain}
+  \begin{tabular}{|l|c|}
+  \hline
+%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
+  Yes  & 93.33\% \\ \hline
+  No   & 6.67\% \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption{Q4. Have you ever used a honeypot before?}
+  \label{tab:UsedBefore}
+  \begin{tabular}{|l|c|}
+  \hline
+%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
+  Yes  & 3.33\% \\ \hline
+  No   & 96.67\% \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[ht]
+  \centering
+  \caption{Q5. The honeypot you used was a hardware (Lab in a box) would you prefer to use a Virtual or Cloud platform instead?}
+  \label{tab:UsedBefore}
+  \begin{tabular}{|l|c|}
+  \hline
+%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
+  Yes  & 30.00\% \\ \hline
+  No   & 70.00\% \\ \hline
+  \end{tabular}
+\end{table}
+
+
+% \begin{figure}[ht]
+%   \begin{center}
+%     \includegraphics[scale=0.29]{Images/HPUseful.eps}
+%   \caption{Useful?\label{fig:HPUseful}}
+%   \end{center}
+% \end{figure}
+
+% \begin{figure}[ht]
+%   \begin{center}
+%     \includegraphics[scale=0.29]{Images/HPEasySetup.eps}
+%   \caption{Setup?\label{fig:HPEasySetup}}
+%   \end{center}
+% \end{figure}
+
+% \begin{figure}[ht]
+%   \begin{center}
+%     \includegraphics[scale=0.29]{Images/HPUseBefore.eps}
+%   \caption{Used Before?\label{fig:HPUseBefore}}
+%   \end{center}
+% \end{figure}
+
+% \begin{figure}[ht]
+%   \begin{center}
+%     \includegraphics[scale=0.29]{Images/HPUseAgain.eps}
+%   \caption{Use Again?\label{fig:HPUseAgain}}
+%   \end{center}
+% \end{figure}
+
+% \begin{figure}[ht]
+%   \begin{center}
+%     \includegraphics[scale=0.29]{Images/HPHardwareVirtual.eps}
+%   \caption{Hardware or Virtual?\label{fig:HPHardwareVirtual}}
+%   \end{center}
+% \end{figure}
+
 
 \subsection{Teaching Supported\label{ResourceSupport}}
 

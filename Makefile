@@ -1,4 +1,4 @@
-main: honeypot.tex honeypot.bib Images/HP1.eps Images/HP2.eps Images/HP3.eps Images/Honeypot1.eps Images/Cabinet.eps Images/CommsCabinet.eps Images/Infrastructure.eps Images/Infrastructure2.eps Images/Throttle.eps Images/Forward.eps Images/NetworkLogical.eps Images/NE.eps Images/DK.eps Images/MB.eps
+main: honeypot.tex honeypot.bib Images/HP1.eps Images/HP2.eps Images/HP3.eps Images/Honeypot1.eps Images/Cabinet.eps Images/CommsCabinet.eps Images/Infrastructure.eps Images/Infrastructure2.eps Images/Throttle.eps Images/Forward.eps Images/NetworkLogical.eps Images/NE.eps Images/DK.eps Images/MB.eps Images/HPUseful.eps Images/HPUseAgain.eps Images/HPUseBefore.eps Images/HPHardwareVirtual.eps Images/HPEasySetup.eps
 	latex honeypot
 	bibtex honeypot
 	latex honeypot
@@ -29,6 +29,21 @@ Images/DK.eps: Images/DK.jpg
 
 Images/MB.eps: Images/MB.jpg
 	convert Images/MB.jpg Images/MB.eps
+
+Images/HPEasySetup.eps: Images/HPEasySetup.png
+	convert Images/HPEasySetup.png Images/HPEasySetup.eps
+
+Images/HPUseAgain.eps: Images/HPUseAgain.png
+	convert Images/HPUseAgain.png Images/HPUseAgain.eps
+
+Images/HPUseBefore.eps: Images/HPUseBefore.png
+	convert Images/HPUseBefore.png Images/HPUseBefore.eps
+
+Images/HPUseful.eps: Images/HPUseful.png
+	convert Images/HPUseful.png Images/HPUseful.eps
+
+Images/HPHardwareVirtual.eps: Images/HPHardwareVirtual.png
+	convert Images/HPHardwareVirtual.png Images/HPHardwareVirtual.eps
 
 Images/Honeypot1.eps: Images/Honeypot1.dia
 	dia -t eps -e Images/Honeypot1.eps -n Images/Honeypot1.dia

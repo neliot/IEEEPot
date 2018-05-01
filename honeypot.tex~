@@ -778,7 +778,7 @@ redirection~\cite{MB:01}.
 
 \begin{figure*}[h]
 \begin{center}
-	\includegraphics[scale=0.35]{Images/Forward.eps}
+	\includegraphics[scale=0.34]{Images/Forward.eps}
 \caption{Address/Port forwarding}
 \label{fig:Forward}
 \end{center}
@@ -793,7 +793,7 @@ switches include HP 2530-08~\cite{HP:17} and TP-LINK TL-SG2008~\cite{TP:17}.
 The combination of port mirroring and port throttling provides a reliable architecture
 for packet capture. 
 
-\paragraph{Port mirroring.}
+\noindent\emph{Port mirroring:}
 Switches maintain an in-memory table of ports and \texttt{MAC} addresses to
 support the efficient delivery of frames. An effect of result of this approach
 is that frames are transferred port to port rather than being broadcast. This
@@ -805,7 +805,7 @@ port, as shown in Figs.~\ref{fig:HPOverview} and~\ref{fig:throttling}. This
 allows all the network activity to be captured and analysed~(\emph{Requirement
 8}).
 
-\paragraph{Bandwidth throttling.}
+\noindent\emph{Bandwidth throttling:}
 A further issue with the capture of the honeypot network traffic is the
 possibility of frame loss on the port to which the mirrored traffic is
 forwarded.  Switches are designed to provide maximum transfer speed between
@@ -1038,6 +1038,19 @@ significantly.
 
 \bibliographystyle{IEEEtran}
 \bibliography{honeypot}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/NE}}]{Neil Eliot}
+is a Senior Lecturer at Northumbria University.  Neil was awarded his Ph.D. from Northumbria in 2017, his Pg.C. in 1994, and his B.Sc. in 1989 all in Computing. His research areas include swarm theory and cybersecurity. Neil is a Certified Ethical Hacker (CEH) and coordinator for the EC Council Academic alliance at Northumbria. He is also responsible for the delivery of several network cybersecurity modules in the area of operating systems integration, smart home technologies and modules that focus on cybersecurity threats in large scale system deployments. Prior to this Neil worked in the chemical industry and the NHS.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/DK}}]{David Kendall}
+David Kendall has been a Senior Lecturer in Computing at Northumbria University since 1989, except for a brief period as a Lecturer in Computer Science at Durham University (2001-02). Previously, he was a Research Associate at Newcastle University (1987-89), following experience as a Senior Software Engineer in industry (1983-86). He has an M.A. degree in Literae Humaniores from Oxford University, where he studied at New College. He received M.Sc. and Ph.D. degrees in Computing Science from Newcastle University. His research interests are in the area of formal modelling and analysis of embedded systems. 
+\end{IEEEbiography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Images/MB}}]{Michael Brockway}
+has been a Senior Lecturer at Northumbria University for 17 years. His first degree is in pure and applied mathematics (1973-4), his Masters in mathematics (mathematical logic, category theory, 1975), and he has a PhD in computer science (formal methods for distributed embedded systems, 2010) from Northumbria University. Before that Michael worked in the computing industry.
+\end{IEEEbiography}
+
 
 \end{document}
 

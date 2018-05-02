@@ -15,8 +15,6 @@ Images/HP2.eps: Images/HP2.jpg
 Images/HP3.eps: Images/HP3.jpg
 	convert Images/HP3.jpg Images/HP3.eps
 
-
-
 main_dvips: honeypot.tex honeypot.bib
 	latex honeypot
 	bibtex honeypot
@@ -26,5 +24,5 @@ main_dvips: honeypot.tex honeypot.bib
 	ps2pdf -dCompatibilityLevel=1.3 -dMaxSubsetPct=100 -dSubsetFonts=true -dEmbedAllFonts=true -dAutoFilterColorImages=false -dAutoFilterGrayImages=false -dColorImageFilter=/FlateEncode -dGrayImageFilter=/FlateEncode -dMonoImageFilter=/FlateEncode honeypot.ps honeypot.pdf
 
 clean:
-	rm -f *~ *.aux *.bbl *.blg *.dvi *.lof *.log *.lot *.out *.ps *.toc
+	rm -f *~ *.aux *.bbl *.blg *.dvi *.lof *.log *.lot *.out *.pdf *.ps *.toc
 

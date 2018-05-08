@@ -247,6 +247,7 @@
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{hhline}
 %\documentclass[journal]{IEEEtran}
 %\usepackage{graphicx}
 %\usepackage[british]{babel}
@@ -394,13 +395,14 @@ type, as shown in Table~\ref{table:HoneypotTypes}.
 \begin{table}[ht]
 \caption{Honeypot types by interaction and volume\label{table:HoneypotTypes}}
 \begin{center}
-\begin{tabular}{| c | c| c |}
+\setlength\doublerulesep{0.5pt}
+\begin{tabular}{| c || c| c |}
 \hline
- & Low Volume & High Volume \\
+ & \textbf{Low Volume} & \textbf{High Volume} \\
+\hhline{|=||=|=|}
+\textbf{Low Interaction} & \texttt{LILV} & \texttt{LIHV} \\
 \hline
-Low Interaction & \texttt{LILV} & \texttt{LIHV} \\
-\hline
-High Interaction & \texttt{HILV} & \texttt{HIHV} \\
+\textbf{High Interaction} & \texttt{HILV} & \texttt{HIHV} \\
 \hline
 \end{tabular}
 \end{center}
@@ -651,10 +653,11 @@ very low cost.
 \begin{table}[ht]
   \caption{\texttt{HILV} Costs\label{table:HILVCosts}}
   \begin{center}
-  \begin{tabular}{| l | c | c | c |}
+  \setlength\doublerulesep{0.5pt}  
+  \begin{tabular}{| l || c | c | c |}
   \hline
   \textbf{Product} & \textbf{Quantity} & \textbf{Unit Cost} & \textbf{Total} \\
-  \hline
+  \hhline{|=||=|=|=|}
   \scriptsize{TP Link 8 Port Managed Switch} & \scriptsize{1} & \scriptsize{\pounds29.99} & \scriptsize{\pounds29.99} \\
   \hline
   \scriptsize{Raspberry Pi} & \scriptsize{4} & \scriptsize{\pounds33.00} & \scriptsize{\pounds132.00} \\
@@ -670,7 +673,7 @@ very low cost.
   \scriptsize{Masterplug 6 socket extension} & \scriptsize{1} & \scriptsize{\pounds16.99} & \scriptsize{\pounds16.99} \\
   \hline
   \scriptsize{Perspex Fabrication} & \scriptsize{1} & \scriptsize{\pounds30.00} & \scriptsize{\pounds30.00} \\
-  \hline
+  \hhline{|=||=|=|=|}
    &  &  & \textbf{\pounds303.40} \\
   \hline
   \end{tabular}

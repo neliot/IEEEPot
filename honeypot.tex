@@ -922,7 +922,7 @@ The use of Raspberry Pi boards in the \texttt{HILV} honeypots has allowed
 diverse subjects to be taught more easily due to their use of removable media
 to store the operating system. The setup time for laboratories and teaching
 sessions has been dramatically reduced compared to our previous approach of
-using small clusters of PC's with removable drives, this is reflected in the students response to the configuration of the \texttt{LIHV} as shown in Fig.~\ref{tab:Useful}
+using small clusters of PC's with removable drives, this is reflected in the students response to the configuration of the \texttt{LIHV} as discussed in section~\ref{sec:Feedback}.
 
 There have been several hardware changes to the \texttt{HILV} honeypots over
 this time but the basic architecture has remained unchanged. The latest change
@@ -931,14 +931,15 @@ switches and their availability has also improved and they are now more
 affordable. As new honeypots are fabricated, \texttt{TP-LINK} switches are being used in
 preference to the more expensive HP switches. The \texttt{TP-LINK} switches do not
 provide a fully implemented monitor port; this requires the inclusion of a
-network tap as shown in Table~\ref{fig:HPOverview}.
+network tap as shown in Fig.~\ref{fig:HPOverview}.
+
+\subsection{Student Feedback\label{sec:Feedback}}
 
 In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. the cohort consisted of 48 students and a response was received from 30 students, the results are as follows:
 \newline
 \noindent\textbf{\textit{Q1:}} Students were asked how useful the \texttt{HILV} honeypot was within the practical research component of the module. 100\% of the students found the honeypot useful with 86.6\% rating the usefulness as very useful or excellent. This result was not outside of what was expected as it is usual for students to prefer to have access to physical equipment. 
 \newline
 \noindent\textbf{\textit{Q2:}} Students were asked how easy it was to configure the \texttt{HILV} honeypot. The configuration was to a base configuration which the students then had to adapt to their individual requirements. All the students found the device uncomplicated to setup in terms of creating the base operating system images on the servers. 56.5\% found the device either easy or very easy to setup. 
-
 
 \noindent The main reasons for this ease of use where due to:
 \begin{itemize}
@@ -952,7 +953,7 @@ Following each practical session the students retained the \texttt{SD} cards for
 
 The \texttt{HILV} honeypots have been available for several years now and students who move to the final year of the cyber security undergraduate programme tend to carry out research based projects. Usually they involve the basic unchanged \texttt{HILV} honeypot but some projects add additional components to the honeypot such as firewalls (pfSense~\cite{PFSENSE:18} or ipFire~\cite{IPFIRE:18}) or wireless access points for the analysis of phone or tablet based application attacks.  
 
-\subsection{Teaching Supported\label{ResourceSupport}}
+\section{Supported Teaching\label{ResourceSupport}}
 
 The current implementation of the laboratory supports \textgreater200 students. This
 includes undergraduates studying networking ($\approx40$) and cybersecurity

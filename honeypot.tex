@@ -391,7 +391,7 @@ These two categories provide four different types of honeypot based upon
 interaction and volume. We use the obvious acronyms to refer to each different
 type, as shown in Table~\ref{table:HoneypotTypes}.
 
-\begin{table}[h]
+\begin{table}[ht]
 \caption{Honeypot types by interaction and volume\label{table:HoneypotTypes}}
 \begin{center}
 \begin{tabular}{| c | c| c |}
@@ -613,12 +613,12 @@ supporting virtualisation to extend the honeypot's functionality.
 
 \begin{figure}[ht]
   \centering
-  \begin{minipage}[h]{0.45\textwidth}
+  \begin{minipage}[ht]{0.45\textwidth}
     \includegraphics[width=\textwidth]{Images/HP1.eps}
     \caption{\texttt{HILV} honeypot side view\label{fig:HP1}}
   \end{minipage}
   \hfill
-  \begin{minipage}[h]{0.45\textwidth}
+  \begin{minipage}[ht]{0.45\textwidth}
     \includegraphics[width=\textwidth]{Images/HP2.eps}
     \caption{\texttt{HILV} honeypot top view\label{fig:HP2}}
   \end{minipage}
@@ -678,7 +678,7 @@ configured to  ``point'' to a target machine within the honeypot,
 as shown in Fig.~\ref{fig:Forward}. In small-scale routers, this operation is
 normally referred to as a \texttt{DMZ} (demilitarised zone) redirection~\cite{MB:01}.
 \newline
-\begin{figure*}[h]
+\begin{figure*}[ht]
 \begin{center}
 	\includegraphics[scale=0.34]{Images/Forward.eps}
 \caption{Address/Port forwarding}
@@ -732,7 +732,7 @@ effect of this is that as frames are transferred between ports they are
 reliably replicated via the backplane to the monitor port. This configuration
 satisfies requirement 8.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 	\includegraphics[scale=0.4]{Images/Throttle.eps}
 \caption{Port throttling\label{fig:throttling}}
@@ -776,7 +776,7 @@ laboratory or via the Internet as a bastion server~\cite{MB:05}. This allows
 access from within the laboratory but also from outside the laboratory to
 support directed learning tasks and also to support collaborative ventures.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 	\includegraphics[scale=0.4]{Images/Infrastructure2.eps}
   \caption{\texttt{LIHV} honeypot overview}
@@ -798,7 +798,7 @@ shown in~Fig.~\ref{fig:Overview1}.
   \end{center}
   \end{figure*}  
 
-The internet provision is provided by cascading each cabinet's ``internet switch'' to the central communication cabinet's ``internet switch''. A logical view of the internet facilities are shown in Fig.~\ref{fig:NetworkLogical}.
+Internet access is provided by cascading each cabinet's ``internet switch'' to the central communication cabinet's ``internet switch''. A logical view of the internet facilities are shown in Fig.~\ref{fig:NetworkLogical}.
 
 \begin{figure}[ht]
   \centering
@@ -831,8 +831,8 @@ manage the \texttt{ISP} connection.
 
 Students have unrestricted access to the other cabinets, each of which is
 linked to a laboratory bench supporting 8--10 students, These cabinets contain a selection of switches, routers, \texttt{IP} Telephony, \texttt{IDS}, and Firewall equipment that is required for general network architecture modules as shown in Fig.~\ref{fig:Cabinet}.
-They are linked back to the communications cabinet to provide Internet access
-for the benches. Access to the Internet from the desktop is achieved through a
+They are linked back to the communications cabinet to provide internet access
+for the benches. Access to the internet from the desktop is achieved through a
 \texttt{NAT} connection from the \texttt{ISP} router in the communications
 cabinet. 
 

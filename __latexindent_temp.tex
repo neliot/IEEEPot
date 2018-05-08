@@ -297,8 +297,7 @@ Teaching Real-World Cybersecurity Skills
   types offers students the opportunity for a highly detailed study of
   cybersecurity attacks and defences at very low cost. It can be usefully
   employed as a standalone device or safely integrated into the laboratory
-  environment for the study of more complex scenarios.  The paper concludes by
-  outlining how the platform has been successfully deployed within a University
+  environment for the study of more complex scenarios. The main contributions of this paper are the design of a hardware-based, off-campus, network laboratory that is suitable for the deployment of honeypots to allow the delivery of cybersecurity modules. The design and implementation of a small form factor, low cost, configurable research platform (\texttt{LiaB}), sometimes referred to as a Lab-in-a-Box (LiaB), that is capable of being configured as a ``light-weight'' research honeypot. Also the design and deployment of a laboratory-based honeypot capable of supporting multiple user interactions to support concurrent experiments to be run both locally and remotely. The laboratory-based honeypot is also capable of supporting hackathon events. The paper concludes by outlining how the platform has been successfully deployed within a University
   environment to support undergraduate and postgraduate teaching and learning.
   It highlights the types of experimentation and projects that the environment
   has supported and will support in the future.
@@ -429,21 +428,18 @@ together with sandboxed deployment of \texttt{LIHV} and \texttt{HILV} honeypots 
 a stimulating, cost-effective environment for cybersecurity studies
 in a University setting.
 
-The paper is structured as follows: Section~\ref{sec:Contributions} describes the main contributions of the paper. Section~\ref{sec:RelatedWork} discusses the current research into the development and deployment of cyber security related implementations. Section~\ref{sec:TeachingRequire} discusses the requirements of a flexible teaching platform for networking and cyber security. Section~\ref{sec:LogicalDesign} discusses the deployment strategy for the laboratory and small form factor honeypots. Section~\ref{sec:HoneyArch} discusses the two main architectures that are needed to support networking and cyber security in higher education. Section~\ref{sec:Results} discusses the effect of the deployment of the technologies and the capabilities it has developed for the University in terms of teaching networking and cyber security. Section~\ref{sec:ConclusionFuture} summarises the findings and identifies future work that still needs to be investigated or developed.
-
-\section{Contributions}\label{sec:Contributions}
-The main contributions of this paper are the design of a hardware-based, off-campus, network technologies laboratory environment that is suitable for the deployment of honeypot technologies to allow the delivery of cyber-security modules. The design and implementation of a small form factor, low cost, configurable research platform (\texttt{LiaB}), that is capable of being be configured as a ``light-weight'' research honeypot. Also the design and deployment of a laboratory-based honeypot capable of supporting multiple user interactions to support concurrent experiments to be ran both locally and remotely. The laboratory-based honeypot is also capable of supporting hackathon events.  
+The paper is structured as follows: Section~\ref{sec:RelatedWork} discusses the current research into the development and deployment of cybersecurity related implementations. Section~\ref{sec:TeachingRequire} discusses the requirements of a flexible teaching platform for networking and cybersecurity. Section~\ref{sec:LogicalDesign} discusses the deployment strategy for the laboratory and small form factor honeypots. Section~\ref{sec:HoneyArch} discusses the two main architectures that are needed to support networking and cybersecurity in higher education. Section~\ref{sec:Results} discusses the effect of the deployment of the technologies and the capabilities it has developed for the University in terms of teaching networking and cybersecurity. Section~\ref{sec:ConclusionFuture} summarises the findings and identifies future work that still needs to be investigated or developed.
 
 \section{Related Work}\label{sec:RelatedWork}
-Romney and Lanoy~\cite{LR:06}, Hiber et al.~\cite{HRS:08}, Wannous and Nakano~\cite{WN:10} and Marsa et al.~\cite{MGDL:13} discuss the use of virtual environments as a mechanism to deploy laboratory/honeypot platforms and networking architectures. Virtualisation works well for general network infrastructure simulation to assist in the design of an architecture however when using virtualisation in the context of cyber security virtualisation can introduce limitations. The limitations extend to deployment, resource utilisation, and data capture. The main problems arise from the fact that the resources in a virtual environment are shared. A laboratory based on \texttt{VLAN} technology supporting multiple simultaneous experiments may produce unexpected results due to cross boundary impacts such as the exhaustion of a \texttt{MAC} table or backplane capabilities causing packet loss in a layer 2 switch during a \texttt{DoS} experiment. \texttt{MAC} Flooding experiments executed on a \texttt{VLAN} can disable a switch due to the \texttt{VLAN} trunk's \texttt{MAC} table exhausting the switches memory. Experiments in a virtual environment may breach a sandboxed virtual host which could impact on other experiments. The physical networking components of a virtual server are often shared across the virtual hosts even though the hosts use virtualised addresses, this can produce unexpected results if simultaneous experiment are executed. When conducting remote attack experiments the network capture capabilities are also complicated by virtualisation due to the mixture of traffic from multiple experiments. A simple reconnaissance scan of a network could compromise other experiments.
+There are many articles and papers relating to the development of honeypot technologies as both physical and virtual implementations and their application to teaching cybersecurity. Romney and Lanoy~\cite{LR:06}, Hiber et al.~\cite{HRS:08}, Wannous and Nakano~\cite{WN:10} and Marsa et al.~\cite{MGDL:13} discuss the use of virtual environments as a mechanism to deploy laboratory/honeypot platforms and networking architectures. Virtualisation works well for general network infrastructure simulation to assist in the design of an architecture however when using virtualisation in the context of cybersecurity virtualisation can introduce limitations. The limitations extend to deployment, resource utilisation, and data capture. The main problems arise from the fact that the resources in a virtual environment are shared. A laboratory based on \texttt{VLAN} technology supporting multiple simultaneous experiments may produce unexpected results due to cross boundary impacts such as the exhaustion of a \texttt{MAC} table or backplane capabilities causing packet loss in a layer 2 switch during a \texttt{DoS} experiment. \texttt{MAC} Flooding experiments executed on a \texttt{VLAN} can disable a switch due to the \texttt{VLAN} trunk's \texttt{MAC} table exhausting the switches memory. Experiments in a virtual environment may breach a sandboxed virtual host which could impact on other experiments. The physical networking components of a virtual server are often shared across the virtual hosts even though the hosts use virtualised addresses, this can produce unexpected results if simultaneous experiment are executed. When conducting remote attack experiments the network capture capabilities are also complicated by virtualisation due to the mixture of traffic from multiple experiments. A simple reconnaissance scan of a network could compromise other experiments.
 
-Randel et al.~\cite{ACG:06} describes a more independent hardware solution however it still requires \texttt{VLAN} technologies and requires a large number of routers, switches and servers to provide the environment. The environment is configurable but network infrastructure attack-based research could compromise multiple users.
+Abler al.~\cite{ACG:06} describes a more independent hardware solution however it still requires \texttt{VLAN} technologies and requires a large number of routers, switches and servers to provide the environment. The environment is configurable but network infrastructure attack-based research could compromise multiple users.
 
 Salah et al.~\cite{SHZ:15} describe the use of cloud services such as Amazon Elastic Compute Cloud (EC2) for the deployment of configurable environments for cyber security however many of the issues relating to virtualisation are reflected in this approach and the usage agreements for the EC2 platform places restrictions on the potential usage. Section 6 of the Customer Agreement states the service could be suspended if the usage is deemed a security risk to the cloud service or other customers. \textit{``a) your or an End User’s use of the Service Offerings (i) poses a security risk to the Service Offerings or any third party, (ii) could adversely impact our systems, the Service Offerings or the systems or Content of any other AWS customer''}~\cite{AWS:18}.
 
-Lee et al.~\cite{LUFC:11} describe a very popular approach to a competition-based network configuration where a small network of physical devices (usually PCs) provides an environment where teams can compete in activities such as capture-the-flag or time trials. The network is a simple \texttt{LAN} with multiple clients and servers located on a subnet. From a cyber security research perspective the infrastructure provides limited access to network traffic for specific attack analysis and therefore limits its effectiveness as an analysis tool. The environment does provide users with a platform for trying out attacks which are usually using from well established tool-sets such as those provided by the \texttt{Kali}~\cite{OS:17} disto. This type of platform works well for events such as those organised by the Cyber Security Challenge UK organisation~\cite{CSCUK:18} where Cyber Security is a competitive activity rather than a research topic.   
+Lee et al.~\cite{LUFC:11} describe a very popular approach to a competition-based network configuration where a small network of physical devices (usually PCs) provides an environment where teams can compete in activities such as capture-the-flag or time trials. The network is a simple \texttt{LAN} with multiple clients and servers located on a subnet. From a cybersecurity research perspective the infrastructure provides limited access to network traffic for specific attack analysis and therefore limits its effectiveness as an analysis tool. The environment does provide users with a platform for trying out attacks which are usually using from well established tool-sets such as those provided by \texttt{Kali Linux}~\cite{OS:17}. This type of platform works well for events such as those organised by the Cyber Security Challenge UK organisation~\cite{CSCUK:18} where cybersecurity is a competitive activity rather than a research topic.   
 
-Aspects of the deployment discussed in this paper are similar to those of Romney and Lanoy, Hiber et al., Wannous and Nakano, and Marsa et al. in the using virtualisation. In the context of this paper virtualisation is used to add resources to the architecture. The deployment is similar to Randel et al. through the use of a hardware based solution but the focus of this paper is on the \textit{simultaneous} usage of multiple research honeypots in a laboratory environment for undergraduate and post-graduate students. The paper extends their work by deploying the honeypot environments as a discrete physical configuration to increase their potential as a learning environment. Spitner~\cite{LS:03} discusses many cybersecurity attack techniques and the physically deployed \texttt{HILV} lends itself to the types of attacks he discusses. This includes deploying a \texttt{LIHV} honeypot within the laboratory and allowing access from the laboratory to specific services or equipment within it to emulate ``real'' attacks.
+Aspects of the deployment discussed in this paper are similar to those of Romney and Lanoy, Hiber et al., Wannous and Nakano, and Marsa et al. in the use of virtualisation. In the context of this paper virtualisation is used to add resources to the architecture. The deployment is similar to Abler et al. in the use of a hardware-based solution but the focus of this paper is on the \textit{simultaneous} usage of multiple research honeypots in a laboratory environment for undergraduate and post-graduate students. The paper extends their work by deploying the honeypot environments as a discrete physical configuration to increase their potential as a learning environment. Spitner~\cite{LS:03} discusses many cybersecurity attack techniques and our physically deployed \texttt{HILV} lends itself to their investigation. 
 
 The honeypot designs in this paper also extend the ability to deploy multi-honeypot
 experimental environments as discussed by Duffany~\cite{JD:08}. This is
@@ -455,16 +451,59 @@ multiple locations. If this architecture is combined with the structured network
 
 \section{Laboratory Requirements}\label{sec:TeachingRequire}
 
+This section discusses the main requirements of the honeypot technologies and the general purpose network infrastructure for the delivery of networking and cybersecurity modules.
+
+\subsection{\texttt{HILV} Honeypot}\label{subsec:ResearchHoneypot}
+
+\noindent\textit{\textbf{Requirement 1}}:
+The \texttt{HILV} honeypot must allow students: to deploy basic networking services
+on multiple low-cost servers
+(e.g.\ \texttt{DHCP}/\texttt{DNS}/\texttt{HTTP}/\texttt{DB}); to attack these
+services; and to capture and analyse the details of the network traffic
+and server events that are generated.
+\newline\newline
+\noindent\textit{\textbf{Requirement 2}}:
+In order to satisfy Requirement 4, while protecting the rest of the laboratory
+from the effects of attacks, there needs to be a mechanism that allows students
+to connect their servers to the general networking laboratory via port mapping
+or address forwarding.
+\newline\newline
+\noindent\textit{\textbf{Requirement 3}}:
+The servers need to have limited hardware resources in order to allow the
+analysis of resource exhaustion attacks without requiring a large number of
+attacking end points, e.g.\ it should be possible to launch a successful
+resource exhaustion attack from a botnet consisting of a few machines rather
+than hundreds or thousands.
+\newline\newline
+\noindent\textit{\textbf{Requirement 4}}:
+The honeypot must provide scope for additional services and devices to be
+added. It must also provide the ability to cascade multiple honeypots to create
+a honeynet~\cite{AA:15,FDF:15,KNC:15}.
+\newline\newline
+\noindent\textit{\textbf{Requirement 5}}:
+The honeypot must facilitate effective network traffic capture to ensure the
+integrity of any network analysis e.g.\ identifying network transactions in a
+website defacement or denial of service-based (\texttt{DoS} or \texttt{DDoS})
+attack, or spoofed packets such as in \texttt{ARP} poisoning for
+man-in-the-middle (\texttt{MitM}) attacks~\cite{PS:16,RSKA:16}.
+
+\subsection{\texttt{LIHV} Honeypot}\label{subsec:LabHoneypot}
+
+\noindent\textit{\textbf{Requirement 6}}:
+There needs to be a facility that allows large numbers of students to test
+existing cybersecurity tools and to provide them with the ability to develop
+and test their own tools.
+
 \subsection{General Networking Laboratory}\label{subsec:GeneralLab}
 
-\noindent\textit{\textbf{Requirement 1}}: There must be a flexible re-configurable base laboratory environment, isolated from the main university campus network, for students to carry out their normal
+\noindent\textit{\textbf{Requirement 7}}: There must be a flexible re-configurable base laboratory environment, isolated from the main university campus network, for students to carry out their normal
 studies of networks, operating systems and network services. Students require
 administrative access to the basic networking equipment such as routers,
 switches, and desktop machines for installation and configuration of general
 purpose tools and virtual environments. These activities would normally be
 prohibited on a University campus network~\cite{MGDL:13}. This is the case at Northumbria University although limited access is provided to staff rooms via campus \texttt{VLAN} connections, however, these connections are to phased out in 2018. There also needs to be a facility to quickly restore a standard software environment to all devices.
 \newline\newline
-\noindent\textit{\textbf{Requirement 2}}: The laboratory network should implement a security policy, independent of the
+\noindent\textit{\textbf{Requirement 8}}: The laboratory network should implement a security policy, independent of the
 standard University policy, controlling access to the Internet. This is to
 allow students to access security sites and relevant software packages. Many
 academic networks block access to cybersecurity tool sites from their
@@ -476,169 +515,11 @@ sites such as \texttt{http://www.hak5.org} or
 \texttt{https://www.exploit-db.com/}. It must be possible to lift these
 restrictions in a laboratory supporting cybersecurity studies.
 
-\subsection{\texttt{LIHV} Honeypot}\label{subsec:LabHoneypot}
-
-\noindent\textit{\textbf{Requirement 3}}:
-There needs to be a facility that allows large numbers of students to test
-existing cybersecurity tools and to provide them with the ability to develop
-and test their own tools.
-
-\subsection{\texttt{HILV} Honeypot}\label{subsec:ResearchHoneypot}
-
-\noindent\textit{\textbf{Requirement 4}}:
-The \texttt{HILV} honeypot must allow students: to deploy basic networking services
-on multiple low-cost servers
-(e.g.\ \texttt{DHCP}/\texttt{DNS}/\texttt{HTTP}/\texttt{DB}); to attack these
-services; and to capture and analyse the details of the network traffic
-and server events that are generated.
-\newline\newline
-\noindent\textit{\textbf{Requirement 5}}:
-In order to satisfy Requirement 4, while protecting the rest of the laboratory
-from the effects of attacks, there needs to be a mechanism that allows students
-to connect their servers to the general networking laboratory via port mapping
-or address forwarding.
-\newline\newline
-\noindent\textit{\textbf{Requirement 6}}:
-The servers need to have limited hardware resources in order to allow the
-analysis of resource exhaustion attacks without requiring a large number of
-attacking end points, e.g.\ it should be possible to launch a successful
-resource exhaustion attack from a botnet consisting of a few machines rather
-than hundreds or thousands.
-\newline\newline
-\noindent\textit{\textbf{Requirement 7}}:
-The honeypot must provide scope for additional services and devices to be
-added. It must also provide the ability to cascade multiple honeypots to create
-a honeynet~\cite{AA:15,FDF:15,KNC:15}.
-\newline\newline
-\noindent\textit{\textbf{Requirement 8}}:
-The honeypot must facilitate effective network traffic capture to ensure the
-integrity of any network analysis e.g.\ identifying network transactions in a
-website defacement or denial of service-based (\texttt{DoS} or \texttt{DDoS})
-attack, or spoofed packets such as in \texttt{ARP} poisoning for
-man-in-the-middle (\texttt{MitM}) attacks~\cite{PS:16,RSKA:16}.
-
 \section{Logical/Physical Network Infrastructure}\label{sec:LogicalDesign}
 
-The teaching environment consists of three distinct components: The general
-networking laboratory (\textit{requirement 1,2}), the \texttt{LIHV} honeypot
-(\textit{requirement 3}) and the small scale \texttt{HILV} honeypots
-(\textit{requirements 4,5,6,7,8}).
-
-\subsection{General Networking Laboratory}
-
-The flexible laboratory environment needs to provide a re-configurable physical
-networking layer. This is provided by a structured cabling architecture as
-shown in~Fig.~\ref{fig:Overview1}. 
-
-\begin{figure*}[ht]
-  \begin{center}
-    \includegraphics[scale=0.5]{Images/Infrastructure.eps}
-  \caption{General networking laboratory overview}
-  \label{fig:Overview1}
-  \end{center}
-  \end{figure*}  
-
-The internet provision is provided by cascading each cabinet's ``internet switch'' to the central communications cabinet's ``internet switch''. A logical view of the internet facilities are shown in Fig.~\ref{fig:NetworkLogical}.
-
-\begin{figure}[ht]
-  \centering
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[scale=0.2]{Images/NetworkLogical.eps}
-  \caption{Logical view of internet access}
-  \label{fig:NetworkLogical}
-  \end{minipage}
-\end{figure}
-
-The communications cabinet is secured; students are not allowed access to it,
-in order to prevent them from reconfiguring the base network and the network
-services equipment.  The cabinet contains the primary \texttt{DHCP} and
-\texttt{DNS} servers, a 1U intranet server, a database server and a
-\texttt{NAS} drive as shown in Fig.~\ref{fig:CommsCabinet}. It also includes a \texttt{VDSL} fibre link from the \texttt{ISP}. In the case of Northumbria University, the provider is BT
-Business~\cite{BT:17}. A Draytek Vigor 2850~\cite{DC:17} router is used to
-manage the \texttt{ISP} connection. 
-  
-Students have unrestricted access to the other cabinets, each of which is
-linked to a laboratory bench supporting 8--10 students, These cabinets contain a selection of switches, routers, \texttt{IP} Telephony, \texttt{IDS}, and Firewall equipment that is required for general network architecture modules as shown in Fig.~\ref{fig:Cabinet}.
-They are linked back to the communications cabinet to provide Internet access
-for the benches. Access to the Internet from the desktop is achieved through a
-\texttt{NAT} connection from the \texttt{ISP} router in the communications
-cabinet. 
-
-\begin{figure}[ht]
-  \centering
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Images/Cabinet.eps}
-    \caption{General networking laboratory cabinet\label{fig:Cabinet}}
-  \end{minipage}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Images/CommsCabinet.eps}
-    \caption{Communications cabinet\label{fig:CommsCabinet}}
-  \end{minipage}
-\end{figure}
-
-The structured cabling allows the resources of each cabinet within the
-laboratory to be linked to the desktop through structured cabling ports.
-Cross-cabinet connections ensure specialist resources are flexibly available to
-all benches e.g.\ switches, routers, firewalls, and \texttt{IDS} (Intrusion
-Detection Systems) etc.
-
-\subsection{Address Range Support}
-
-The use of virtualisation at the desktop (\texttt{GNS3}~\cite{GNS3:17},
-VMWare~\cite{VMWARE:17} and VirtualBox~\cite{O:17}), to support operating
-systems and networking modules, requires a large number of host addresses to
-support a large number of students deploying statically addressed virtual
-hosts. The base laboratory network infrastructure is configured as a single
-class B subnet.  This provides 65,534 addresses, which is more than enough for
-each student to be allocated a block of contiguous \texttt{IP} addresses for
-each module, allowing multiple modules to be delivered concurrently without
-having \texttt{IP} address conflicts.  This approach also allows equipment to
-be moved around in the laboratory without requiring address reconfiguration.
-
-\subsection{Network Service Deployment}\label{InfraService}
-
-To support the study of operating systems and other general computing subjects,
-the network requires, as a minimum, \texttt{DNS}~\cite{RA:11} and
-\texttt{DHCP}~\cite{DL:02} services. These services are deployed across three
-small-scale, 1U servers (HPE ProLiant DL360 Gen9 Server~\cite{HPE:17}). Two
-servers are located in the communications cabinet as shown
-in~Fig.~\ref{fig:Overview1}. One server supports \texttt{DHCP} and \texttt{DNS}
-which are integrated to create a \texttt{DDNS}~\cite{SV:06} environment. The
-second server acts as the secondary \texttt{DNS} server. The third server is
-located in the \texttt{LIHV} honeypot cabinet and acts as a further secondary
-\texttt{DNS} server.
-
-The communications cabinet also contains a 1U server that provides the
-laboratory intranet (\texttt{LAMP} based) service, along with general purpose
-\texttt{MySQL} database services for the intranet and module content delivery.
-
-Deployment of known desktop equipment is coordinated by creating reservation
-entries in the \texttt{DHCP} service. The \texttt{DHCP} server then
-automatically creates the forward and reverse \texttt{DNS} entries in the
-\texttt{DNS} architecture as the equipment boots. Students can also connect
-their own devices which are allocated a network configuration from a
-\texttt{DHCP} address pool.
-
-\subsection{Teaching Facilities Support}
-
-Teaching of standard technologies, such as switching and routing, use the
-physical equipment within the cabinets. The laboratory also supports network
-virtualisation through \texttt{GNS3}, which can be integrated with the physical
-equipment when necessary. The teaching of the \texttt{OS}-based technologies is
-supported through the use of desktop virtualisation, allowing each student to
-have multiple clients and servers running simultaneously on a single machine.
-For large-scale scenarios, which are required on some modules, the virtual
-machines may be deployed across several desktop machines. These large scale
-deployments require the virtualisation software to support network card
-bridging to allow the virtual machines to be ``physically'' connected to the
-laboratory infrastructure.  Subjects that require a laboratory
-``search-by-name'' facility (\texttt{DNS} and \texttt{rDNS}) such as Java
-Sockets and C Sockets programming are supported by the \texttt{DDNS}
-implementation as discussed in~Sect.~\ref{InfraService}.
+The teaching environment consists of three distinct components: The small scale \texttt{HILV} honeypots
+(\textit{requirements 1,2,3,4,5}), the \texttt{LIHV} honeypot
+(\textit{requirement 6}) and, the general purpose networking laboratory (\textit{requirement 7,8}).
 
 \section{Honeypot Architectures}\label{sec:HoneyArch}
 
@@ -761,7 +642,7 @@ individual projects as a set of micro SD cards that they retain for the
 duration of a project.
 
 The approximate cost of the basic \texttt{HILV} honeypot, without additional
-devices or the monitoring PC attached, is \pounds450.  This offers a highly
+devices or the monitoring PC attached, is \pounds350.  This offers a highly
 stimulating environment for the teaching of practical cybersecurity skills at a
 very low cost.
 \newline
@@ -883,7 +764,7 @@ port monitoring or throttling is required and all activity monitoring is
 achieved using log file monitoring. The log files are made available 
 for analysis of service-based access activity via a web-link.
 
-The \texttt{LIHV} honeypot is a single 1U \texttt{LAMP} server, located in a
+The \texttt{LIHV} honeypot is a single 1U \texttt{LAMP} server (HPE ProLiant DL360 Gen9 Server~\cite{HPE:17} costing approx \pounds2000), located in a
 separate cabinet, shown in Fig.~\ref{fig:Overview2}. The cabinet is secured to
 prevent students having direct access to the hardware. It supports the general
 honeypot service to provide students with a platform to carry out simple
@@ -903,6 +784,126 @@ support directed learning tasks and also to support collaborative ventures.
 \end{center}
 \end{figure}
 
+\subsection{General Networking Laboratory}
+
+The flexible laboratory environment needs to provide a re-configurable physical
+networking layer. This is provided by a structured cabling architecture as
+shown in~Fig.~\ref{fig:Overview1}. 
+
+\begin{figure*}[ht]
+  \begin{center}
+    \includegraphics[scale=0.5]{Images/Infrastructure.eps}
+  \caption{General networking laboratory overview}
+  \label{fig:Overview1}
+  \end{center}
+  \end{figure*}  
+
+The internet provision is provided by cascading each cabinet's ``internet switch'' to the central communication cabinet's ``internet switch''. A logical view of the internet facilities are shown in Fig.~\ref{fig:NetworkLogical}.
+
+\begin{figure}[ht]
+  \centering
+  \begin{minipage}[ht]{0.45\textwidth}
+    \includegraphics[scale=0.2]{Images/NetworkLogical.eps}
+  \caption{Logical view of internet access}
+  \label{fig:NetworkLogical}
+  \end{minipage}
+\end{figure}
+
+The communications cabinet is secured; students are not allowed access to it,
+in order to prevent them from reconfiguring the base network and the network
+services equipment. Figure~\ref{fig:CommsCabinet} shows the main infrastructure cabling within the communications cabinet.  The cabinet also contains the primary \texttt{DHCP} and
+\texttt{DNS} servers, a 1U intranet server, a database server and a
+\texttt{NAS} drive as shown in Fig.~\ref{fig:CommsCabinetServers}. It also includes a \texttt{VDSL} fibre link from the \texttt{ISP}. In the case of Northumbria University, the provider is BT
+Business~\cite{BT:17}. A Draytek Vigor 2850~\cite{DC:17} router is used to
+manage the \texttt{ISP} connection. 
+
+\begin{figure}[ht]
+  \centering
+  \begin{minipage}[ht]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Images/CommsCabinet.eps}
+    \caption{Communications cabinet\label{fig:CommsCabinet}}
+  \end{minipage}
+  \begin{minipage}[ht]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Images/CommsCabinetServers.eps}
+    \caption{Communications cabinet servers\label{fig:CommsCabinetServers}}
+  \end{minipage}
+\end{figure}
+
+Students have unrestricted access to the other cabinets, each of which is
+linked to a laboratory bench supporting 8--10 students, These cabinets contain a selection of switches, routers, \texttt{IP} Telephony, \texttt{IDS}, and Firewall equipment that is required for general network architecture modules as shown in Fig.~\ref{fig:Cabinet}.
+They are linked back to the communications cabinet to provide Internet access
+for the benches. Access to the Internet from the desktop is achieved through a
+\texttt{NAT} connection from the \texttt{ISP} router in the communications
+cabinet. 
+
+\begin{figure}[ht]
+  \centering
+  \begin{minipage}[ht]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Images/Cabinet.eps}
+    \caption{General networking laboratory cabinet\label{fig:Cabinet}}
+  \end{minipage}
+\end{figure}
+
+The structured cabling allows the resources of each cabinet within the
+laboratory to be linked to the desktop through structured cabling ports.
+Cross-cabinet connections ensure specialist resources are flexibly available to
+all benches e.g.\ switches, routers, firewalls, and \texttt{IDS} (Intrusion
+Detection Systems) etc.
+
+\subsection{Address Range Support}
+
+The use of virtualisation at the desktop (\texttt{GNS3}~\cite{GNS3:17},
+VMWare~\cite{VMWARE:17} and VirtualBox~\cite{O:17}), to support operating
+systems and networking modules, requires a large number of host addresses to
+support a large number of students deploying statically addressed virtual
+hosts. The base laboratory network infrastructure is configured as a single
+class B subnet.  This provides 65,534 addresses, which is more than enough for
+each student to be allocated a block of contiguous \texttt{IP} addresses for
+each module, allowing multiple modules to be delivered concurrently without
+having \texttt{IP} address conflicts.  This approach also allows equipment to
+be moved around in the laboratory without requiring address reconfiguration.
+
+\subsection{Network Service Deployment}\label{InfraService}
+
+To support the study of operating systems and other general computing subjects,
+the network requires, as a minimum, \texttt{DNS}~\cite{RA:11} and
+\texttt{DHCP}~\cite{DL:02} services. These services are deployed across three
+small-scale, 1U servers (HPE ProLiant DL360 Gen9 Server~\cite{HPE:17}). Two
+servers are located in the communications cabinet as shown
+in~Fig.~\ref{fig:Overview1}. One server supports \texttt{DHCP} and \texttt{DNS}
+which are integrated to create a \texttt{DDNS}~\cite{SV:06} environment. The
+second server acts as the secondary \texttt{DNS} server. The third server is
+located in the \texttt{LIHV} honeypot cabinet and acts as a further secondary
+\texttt{DNS} server.
+
+The communications cabinet also contains a 1U server that provides the
+laboratory intranet (\texttt{LAMP} based) service, along with general purpose
+\texttt{MySQL} database services for the intranet and module content delivery.
+
+Deployment of known desktop equipment is coordinated by creating reservation
+entries in the \texttt{DHCP} service. The \texttt{DHCP} server then
+automatically creates the forward and reverse \texttt{DNS} entries in the
+\texttt{DNS} architecture as the equipment boots. Students can also connect
+their own devices which are allocated a network configuration from a
+\texttt{DHCP} address pool.
+
+\subsection{Teaching Facilities Support}
+
+Teaching of standard technologies, such as switching and routing, use the
+physical equipment within the cabinets. The laboratory also supports network
+virtualisation through \texttt{GNS3}, which can be integrated with the physical
+equipment when necessary. The teaching of the \texttt{OS}-based technologies is
+supported through the use of desktop virtualisation, allowing each student to
+have multiple clients and servers running simultaneously on a single machine.
+For large-scale scenarios, which are required on some modules, the virtual
+machines may be deployed across several desktop machines. These large scale
+deployments require the virtualisation software to support network card
+bridging to allow the virtual machines to be ``physically'' connected to the
+laboratory infrastructure.  Subjects that require a laboratory
+``search-by-name'' facility (\texttt{DNS} and \texttt{rDNS}) such as Java
+Sockets and C Sockets programming are supported by the \texttt{DDNS}
+implementation as discussed in~Sect.~\ref{InfraService}.
+
 \section{Operational Results\label{sec:Results}}
 
 The general laboratory infrastructure has been in place, and actively used, for
@@ -921,7 +922,7 @@ The use of Raspberry Pi boards in the \texttt{HILV} honeypots has allowed
 diverse subjects to be taught more easily due to their use of removable media
 to store the operating system. The setup time for laboratories and teaching
 sessions has been dramatically reduced compared to our previous approach of
-using small clusters of PC's with removable drives, this is reflected in the students response to the configuration of the \texttt{LIHV} as shown in Fig.~\ref{tab:Useful}
+using small clusters of PC's with removable drives, this is reflected in the students response to the configuration of the \texttt{LIHV} as discussed in section~\ref{sec:Feedback}.
 
 There have been several hardware changes to the \texttt{HILV} honeypots over
 this time but the basic architecture has remained unchanged. The latest change
@@ -930,30 +931,17 @@ switches and their availability has also improved and they are now more
 affordable. As new honeypots are fabricated, \texttt{TP-LINK} switches are being used in
 preference to the more expensive HP switches. The \texttt{TP-LINK} switches do not
 provide a fully implemented monitor port; this requires the inclusion of a
-network tap as shown in Table~\ref{fig:HPOverview}.
+network tap as shown in Fig.~\ref{fig:HPOverview}.
 
-In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. 
+\subsection{Student Feedback\label{sec:Feedback}}
 
-Table~\ref{tab:Useful}, is the results on how useful the \texttt{HILV} honeypot was for the students within the practical research compoent of the module. The results show that all of the students found the honeypot useful. This result was not outside of what was expected as it is usual for students to prefer to have access to physical equipment. 
+In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. the cohort consisted of 48 students and a response was received from 30 students, the results are as follows:
+\newline
+\noindent\textbf{\textit{Q1:}} Students were asked how useful the \texttt{HILV} honeypot was within the practical research component of the module. 100\% of the students found the honeypot useful with 86.6\% rating the usefulness as very useful or excellent. This result was not outside of what was expected as it is usual for students to prefer to have access to physical equipment. 
+\newline
+\noindent\textbf{\textit{Q2:}} Students were asked how easy it was to configure the \texttt{HILV} honeypot. The configuration was to a base configuration which the students then had to adapt to their individual requirements. All the students found the device uncomplicated to setup in terms of creating the base operating system images on the servers. 56.5\% found the device either easy or very easy to setup. 
 
-\begin{table}[ht]
-  \centering
-  \caption{Q1. How useful was the honeypot in your studies?}
-  \label{tab:Useful}
-  \begin{tabular}{|l|c|}
-  \hline
-%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
-  Excellent & 40.00\% \\ \hline
-  Very Good & 46.67\% \\ \hline
-  Okay      & 13.33\% \\ \hline
-  Poor      & 0\%     \\ \hline
-  Useless   & 0\%     \\ \hline
-  \end{tabular}
-\end{table}
-
-Table~\ref{tab:Setup}, is the results on how easy it was to configure the \texttt{HILV} honeypot to a base configuration and then to adapt it to an individual groups requirements. None of the students found the device hard to work with in terms of creating the base operating system images on the servers. Each group of students worked on a different project requiring additional configuration from the base images. 
-
-The main reasons for this ease of use where due to:
+\noindent The main reasons for this ease of use where due to:
 \begin{itemize}
 \item The base configuration of the honeypot had a fixed configuration for the router and switch, this allowed students to sign out any of the 16 honeypots from the loans facility. 
 \item The students created their own base servers from a set of images distributed from the laboratory \texttt{NAS} drive. 
@@ -961,108 +949,22 @@ Following each practical session the students retained the \texttt{SD} cards for
 \item The students were able to backup their entire project using a ``dump'' (\texttt{dd}) of the \texttt{SD} cards.
 \end{itemize}
 
-\begin{table}[ht]
-  \centering
-  \caption{Q2. What was the Honeypot like to setup?}
-  \label{tab:Setup}
-  \begin{tabular}{|l|c|}
-  \hline
-%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
-  Very Easy  & 16.67\% \\ \hline
-  Quite Easy & 40.00\% \\ \hline
-  Okay       & 43.33\% \\ \hline
-  Hard       & 0\%     \\ \hline
-  Very Hard  & 0\%     \\ \hline
-  \end{tabular}
-\end{table}
+\noindent\textbf{\textit{Q3:}} Students were asked if they had used a honeypot before the \texttt{HILV}, the majority (93.3\%) of the students have not used a honeypot before their undergraduate studies and therefore no no preconception as to what to expect. In contrast when asked if they woul consider using a \texttt{HILV} again, the majority (96.6\%) of the students indicated that given the chance they would used the \texttt{HILV} again for further studies. 
 
-Table~\ref{tab:UsedBefore} shows that the majority of the students have not used a \texttt{HILV} honeypot before their undergraduate studies, in contrast, Table~\ref{tab:UseAgain} shows that the majority of the students who used the \texttt{HILV} honeypot would use the platform again for further studies if the opportunity arises. The \texttt{HILV} honeypots have been available for severel years now and students who move to the final year of the cyber security undergraduate programme tend to carry out research based projects. Usually they involve the basic unchanged \texttt{HILV} honeypot but some projects add additional components to the honeypot such as firewalls (pfSense~\cite{} or ipFire~\cite{}) or wireless access points for the analysis of phone or tablet based application attacks.  
+The \texttt{HILV} honeypots have been available for several years now and students who move to the final year of the cyber security undergraduate programme tend to carry out research based projects. Usually they involve the basic unchanged \texttt{HILV} honeypot but some projects add additional components to the honeypot such as firewalls (pfSense~\cite{PFSENSE:18} or ipFire~\cite{IPFIRE:18}) or wireless access points for the analysis of phone or tablet based application attacks.  
 
-\begin{table}[ht]
-  \centering
-  \caption{Q3. Would you use the honeypot for further studies if you had the opportunity?}
-  \label{tab:UseAgain}
-  \begin{tabular}{|l|c|}
-  \hline
-%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
-  Yes  & 93.33\% \\ \hline
-  No   & 6.67\% \\ \hline
-  \end{tabular}
-\end{table}
+\section{Supported Teaching\label{ResourceSupport}}
 
-\begin{table}[ht]
-  \centering
-  \caption{Q4. Have you ever used a honeypot before?}
-  \label{tab:UsedBefore}
-  \begin{tabular}{|l|c|}
-  \hline
-%  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
-  Yes  & 3.33\% \\ \hline
-  No   & 96.67\% \\ \hline
-  \end{tabular}
-\end{table}
-
-% \begin{table}[ht]
-%   \centering
-%   \caption{Q5. The honeypot you used was a hardware (Lab in a box) would you prefer to use a Virtual or Cloud platform instead?}
-%   \label{tab:UsedBefore}
-%   \begin{tabular}{|l|c|}
-%   \hline
-% %  \multicolumn{2}{|l|}{\textbf{Q1. How useful was the honeypot in your studies?}}\\ \hline
-%   Yes  & 30.00\% \\ \hline
-%   No   & 70.00\% \\ \hline
-%   \end{tabular}
-% \end{table}
-
-
-% \begin{figure}[ht]
-%   \begin{center}
-%     \includegraphics[scale=0.29]{Images/HPUseful.eps}
-%   \caption{Useful?\label{fig:HPUseful}}
-%   \end{center}
-% \end{figure}
-
-% \begin{figure}[ht]
-%   \begin{center}
-%     \includegraphics[scale=0.29]{Images/HPEasySetup.eps}
-%   \caption{Setup?\label{fig:HPEasySetup}}
-%   \end{center}
-% \end{figure}
-
-% \begin{figure}[ht]
-%   \begin{center}
-%     \includegraphics[scale=0.29]{Images/HPUseBefore.eps}
-%   \caption{Used Before?\label{fig:HPUseBefore}}
-%   \end{center}
-% \end{figure}
-
-% \begin{figure}[ht]
-%   \begin{center}
-%     \includegraphics[scale=0.29]{Images/HPUseAgain.eps}
-%   \caption{Use Again?\label{fig:HPUseAgain}}
-%   \end{center}
-% \end{figure}
-
-% \begin{figure}[ht]
-%   \begin{center}
-%     \includegraphics[scale=0.29]{Images/HPHardwareVirtual.eps}
-%   \caption{Hardware or Virtual?\label{fig:HPHardwareVirtual}}
-%   \end{center}
-% \end{figure}
-
-
-\subsection{Teaching Supported\label{ResourceSupport}}
-
-The current implementation of the laboratory supports $>200$ students. This
-includes undergraduates studying networking ($\sim40$) and cybersecurity
-($\sim150$), and postgraduates studying networking ($\sim20$). Each of our
-programmes is delivered in modules.   A typical undergraduate programme runs
-around $10$ modules concurrently e.g.\ networking technology (years 1, 2, 3 \&
+The current implementation of the laboratory supports \textgreater200 students. This
+includes undergraduates studying networking ($\approx40$) and cybersecurity
+($\approx150$), and postgraduates studying networking ($\approx20$). Each of our
+programmes is delivered in modules. A typical undergraduate programme runs
+around 10 modules concurrently e.g.\ networking technology (years 1, 2, 3 \&
 4 with MComp), security case projects (Year 2), Sockets programming (year 3).
-Each module requires $\sim3$ hours contact per week and $\sim3$ hours of
+Each module requires $\approx3$ hours contact per week and $\approx3$ hours of
 directed learning, which may require laboratory time.  In addition, the
 laboratory supports many undergraduate and postgraduate cybersecurity projects
-($\sim80$), including cyber attack analysis and general cybersecurity research
+($\approx80$), including cyber attack analysis and general cybersecurity research
 such as biometric-based multi-factor authentication and \texttt{IoT} (Internet
 of Things) security projects.
 

@@ -1,4 +1,4 @@
-main: honeypot.tex honeypot.bib Images/HP1.eps Images/HP2.eps Images/HP3.eps Images/Honeypot1.eps Images/Cabinet.eps Images/CommsCabinet.eps Images/Infrastructure.eps Images/Infrastructure2.eps Images/Throttle.eps Images/Forward.eps Images/NetworkLogical.eps Images/NE.eps Images/DK.eps Images/MB.eps Images/HPUseful.eps Images/HPUseAgain.eps Images/HPUseBefore.eps Images/HPHardwareVirtual.eps Images/HPEasySetup.eps
+main: honeypot.tex honeypot.bib Images/HP1.eps Images/HP2.eps Images/HP3.eps Images/Honeypot1.eps Images/Cabinet.eps Images/CommsCabinet.eps Images/Infrastructure.eps Images/Infrastructure2.eps Images/Throttle.eps Images/Forward.eps Images/NetworkLogical.eps Images/NE.eps Images/DK.eps Images/MB.eps Images/HPUseful.eps Images/HPUseAgain.eps Images/HPUseBefore.eps Images/HPHardwareVirtual.eps Images/CommsCabinetServers.eps Images/HPEasySetup.eps
 	latex honeypot
 	bibtex honeypot
 	latex honeypot
@@ -20,6 +20,9 @@ Images/Cabinet.eps: Images/Cabinet.jpg
 
 Images/CommsCabinet.eps: Images/CommsCabinet.jpg
 	convert Images/CommsCabinet.jpg Images/CommsCabinet.eps
+
+Images/CommsCabinetServers.eps: Images/CommsCabinetServers.jpg
+	convert Images/CommsCabinetServers.jpg Images/CommsCabinetServers.eps
 
 Images/NE.eps: Images/NE.jpg
 	convert Images/NE.jpg Images/NE.eps

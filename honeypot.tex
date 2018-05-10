@@ -646,8 +646,7 @@ individual projects as a set of micro SD cards that they retain for the
 duration of a project.
 
 The approximate cost of the basic \texttt{HILV} honeypot, without additional
-devices or the monitoring PC attached, is $\approx$\pounds300 a breakdown of the costs is shown in Table~\ref{table:HILVCosts}. This offers a highly
-stimulating environment for the teaching of practical cybersecurity skills at a
+devices or the monitoring PC attached, is $\approx$\pounds300 a breakdown of the costs is shown in Table~\ref{table:HILVCosts}. This offers a highly stimulating environment for the teaching of practical cybersecurity skills at a
 very low cost.
 
 \begin{table}[ht]
@@ -938,7 +937,7 @@ laboratory infrastructure.  Subjects that require a laboratory
 Sockets and C Sockets programming are supported by the \texttt{DDNS}
 implementation as discussed in~Sect.~\ref{InfraService}.
 
-\section{Operational Results\label{sec:Results}}
+\section{Operational Results and supported teaching\label{sec:Results}}
 
 The general laboratory infrastructure has been in place, and actively used, for
 10 years. The \texttt{LIHV} honeypot has been in place for 9 years. The
@@ -967,27 +966,7 @@ preference to the more expensive HP switches. The \texttt{TP-LINK} switches do n
 provide a fully implemented monitor port; this requires the inclusion of a
 network tap as shown in Fig.~\ref{fig:HPOverview}.
 
-\subsection{Student Feedback\label{sec:Feedback}}
-
-In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. the cohort consisted of 48 students and a response was received from 30 students, the results are as follows:
-\newline
-\noindent\textbf{\textit{Q1:}} Students were asked how useful the \texttt{HILV} honeypot was within the practical research component of the module. 100\% of the students found the honeypot useful with 86.6\% rating the usefulness as very useful or excellent. This result was not outside of what was expected as it is usual for students to prefer to have access to physical equipment. 
-\newline
-\noindent\textbf{\textit{Q2:}} Students were asked how easy it was to configure the \texttt{HILV} honeypot. The configuration was to a base configuration which the students then had to adapt to their individual requirements. All the students found the \texttt{HILV} uncomplicated to setup in terms of creating the base operating system images for the servers. 56.5\% found the \texttt{HILV} either easy or very easy to setup. 
-
-\noindent The main reasons for this ease of use where due to:
-\begin{itemize}
-\item The base configuration of the honeypot had a fixed configuration for the router and switch, this allowed students to sign out any of the 16 honeypots from the loans facility. 
-\item The students created their own base servers from a set of images distributed from the laboratory \texttt{NAS} drive. 
-Following each practical session the students retained the \texttt{SD} cards for use at the next session. The \texttt{SD} cards provided a stateful configuration of their work. 
-\item The students were able to backup their entire project using a ``dump'' (\texttt{dd}) of the \texttt{SD} cards.
-\end{itemize}
-
-\noindent\textbf{\textit{Q3:}} Students were asked if they had used a honeypot before the \texttt{HILV}. The majority (93.3\%) of the students had not used a honeypot before their undergraduate studies and therefore had no preconception of what to expect. In contrast when asked if they would consider using the \texttt{HILV} again, the majority (96.6\%) of the students indicated that they would used the \texttt{HILV} for further studies. 
-
-The \texttt{HILV} honeypots have been available for several years now and students who move to the final year of the cyber security undergraduate programme tend to carry out research based projects. Usually they involve the basic unchanged \texttt{HILV} honeypot but some projects add additional components to the honeypot such as firewalls (pfSense~\cite{PFSENSE:18} or ipFire~\cite{IPFIRE:18}) or wireless access points for the analysis of phone or tablet based application attacks.  
-
-\section{Supported Teaching\label{ResourceSupport}}
+\subsection{Supported Teaching\label{ResourceSupport}}
 
 The current implementation of the laboratory supports \textgreater200 students. This
 includes undergraduates studying networking ($\approx$40) and cybersecurity
@@ -1066,6 +1045,26 @@ projects. A sample of these projects is described below.
        project involved configuring a vulnerable \texttt{DNS} environment and
        executing an attack and analysing the bandwidth effect of the network.
 \end{itemize}
+
+\section{Student Feedback\label{sec:Feedback}}
+
+In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. the cohort consisted of 48 students and a response was received from 30 students, the results are as follows:
+\newline
+\noindent\textbf{\textit{Q1:}} Students were asked how useful the \texttt{HILV} honeypot was within the practical research component of the module. 100\% of the students found the honeypot useful with 86.6\% rating the usefulness as very useful or excellent. This result was not outside of what was expected as it is usual for students to prefer to have access to physical equipment. 
+\newline
+\noindent\textbf{\textit{Q2:}} Students were asked how easy it was to configure the \texttt{HILV} honeypot. The configuration was to a base configuration which the students then had to adapt to their individual requirements. All the students found the \texttt{HILV} uncomplicated to setup in terms of creating the base operating system images for the servers. 56.5\% found the \texttt{HILV} either easy or very easy to setup. 
+
+\noindent The main reasons for this ease of use where due to:
+\begin{itemize}
+\item The base configuration of the honeypot had a fixed configuration for the router and switch, this allowed students to sign out any of the 16 honeypots from the loans facility. 
+\item The students created their own base servers from a set of images distributed from the laboratory \texttt{NAS} drive. 
+Following each practical session the students retained the \texttt{SD} cards for use at the next session. The \texttt{SD} cards provided a stateful configuration of their work. 
+\item The students were able to backup their entire project using a ``dump'' (\texttt{dd}) of the \texttt{SD} cards.
+\end{itemize}
+
+\noindent\textbf{\textit{Q3:}} Students were asked if they had used a honeypot before the \texttt{HILV}. The majority (93.3\%) of the students had not used a honeypot before their undergraduate studies and therefore had no preconception of what to expect. In contrast when asked if they would consider using the \texttt{HILV} again (\textbf{\textit{Q4}}), the majority (96.6\%) of the students indicated that they would used the \texttt{HILV} for further studies. 
+
+The \texttt{HILV} honeypots have been available for several years now and students who move to the final year of the cyber security undergraduate programme tend to carry out research based projects. Usually they involve the basic unchanged \texttt{HILV} honeypot but some projects add additional components to the honeypot such as firewalls (pfSense~\cite{PFSENSE:18} or ipFire~\cite{IPFIRE:18}) or wireless access points for the analysis of phone or tablet based application attacks.  
 
 \section{Conclusion and Future Work\label{sec:ConclusionFuture}}
 

@@ -430,7 +430,9 @@ together with sandboxed deployment of \texttt{LIHV} and \texttt{HILV} honeypots 
 a stimulating, cost-effective environment for cybersecurity studies
 in a University setting.
 
-The paper is structured as follows: Section~\ref{sec:RelatedWork} discusses the current research into the development and deployment of cybersecurity related implementations. Section~\ref{sec:TeachingRequire} discusses the requirements of a flexible teaching platform for networking and cybersecurity. Section~\ref{sec:LogicalDesign} discusses the deployment strategy for the laboratory and small form factor honeypots. Section~\ref{sec:HoneyArch} discusses the two main architectures that are needed to support networking and cybersecurity in higher education. Section~\ref{sec:Results} discusses the effect of the deployment of the technologies and the capabilities it has developed for the University in terms of teaching networking and cybersecurity. Section~\ref{sec:ConclusionFuture} summarises the findings and identifies future work that still needs to be investigated or developed.
+The paper is structured as follows: Section~\ref{sec:RelatedWork} discusses the current research into the development and deployment of cybersecurity related implementations. Section~\ref{sec:TeachingRequire} discusses the requirements of a flexible teaching platform for networking and cybersecurity. 
+%Section~\ref{sec:LogicalDesign} discusses the deployment strategy for the laboratory and small form factor honeypots. 
+Section~\ref{sec:HoneyArch} discusses the two main architectures that are needed to support networking and cybersecurity in higher education. Section~\ref{sec:Results} discusses the effect of the deployment of the technologies and the capabilities it has developed for the University in terms of teaching networking and cybersecurity. Section~\ref{sec:ConclusionFuture} summarises the findings and identifies future work that still needs to be investigated or developed.
 
 \section{Related Work}\label{sec:RelatedWork}
 There are many papers relating to the development and use of honeypot technologies. These papers cover both physical and virtual implementations, and their application to teaching cybersecurity. 
@@ -455,7 +457,7 @@ multiple locations. If this architecture is combined with the structured network
 
 \section{Laboratory Requirements}\label{sec:TeachingRequire}
 
-This section discusses the main requirements of the honeypot technologies and the general purpose network infrastructure for the delivery of networking and cybersecurity modules.
+This section discusses the main requirements of the honeypot technologies and the general purpose network infrastructure for the delivery of networking and cybersecurity modules. The teaching environment consists of three distinct components: The small scale \texttt{HILV} honeypots (\textit{requirements 1,2,3,4,5}), the \texttt{LIHV} honeypot (\textit{requirement 6}) and, the general purpose networking laboratory (\textit{requirement 7,8}).
 
 \subsection{\texttt{HILV} Honeypot}\label{subsec:ResearchHoneypot}
 
@@ -467,7 +469,7 @@ services; and to capture and analyse the details of the network traffic
 and server events that are generated.
 \newline\newline
 \noindent\textit{\textbf{Requirement 2}}:
-In order to satisfy Requirement 4, while protecting the rest of the laboratory
+In order to satisfy Requirement 1, while protecting the rest of the laboratory
 from the effects of attacks, there needs to be a mechanism that allows students
 to connect their servers to the general networking laboratory via port mapping
 or address forwarding.
@@ -518,12 +520,6 @@ distribution~\cite{OS:17} are usually blocked, as are cybersecurity information
 sites such as \texttt{http://www.hak5.org} or
 \texttt{https://www.exploit-db.com/}. It must be possible to lift these
 restrictions in a laboratory supporting cybersecurity studies.
-
-\section{Logical/Physical Network Infrastructure}\label{sec:LogicalDesign}
-
-The teaching environment consists of three distinct components: The small scale \texttt{HILV} honeypots
-(\textit{requirements 1,2,3,4,5}), the \texttt{LIHV} honeypot
-(\textit{requirement 6}) and, the general purpose networking laboratory (\textit{requirement 7,8}).
 
 \section{Honeypot Architectures}\label{sec:HoneyArch}
 
@@ -657,13 +653,13 @@ very low cost.
   \hline
   \textbf{Product} & \textbf{Quantity} & \textbf{Unit Cost} & \textbf{Total} \\
   \hhline{|=||=|=|=|}
-  \scriptsize{TP Link 8 Port Managed Switch} & \scriptsize{1} & \scriptsize{\pounds29.99} & \scriptsize{\pounds29.99} \\
+  \scriptsize{TP Link TL-SG108E 8 port switch} & \scriptsize{1} & \scriptsize{\pounds29.99} & \scriptsize{\pounds29.99} \\
   \hline
-  \scriptsize{Raspberry Pi} & \scriptsize{4} & \scriptsize{\pounds33.00} & \scriptsize{\pounds132.00} \\
+  \scriptsize{Raspberry Pi 3} & \scriptsize{4} & \scriptsize{\pounds33.00} & \scriptsize{\pounds132.00} \\
   \hline
   \scriptsize{Raspberry Pi PSU} & \scriptsize{4} & \scriptsize{\pounds8.89} & \scriptsize{\pounds35.56} \\
   \hline
-  \scriptsize{Cable Router} & \scriptsize{1} & \scriptsize{\pounds34.99} & \scriptsize{\pounds34.99} \\
+  \scriptsize{TP Link TL-R470T+ Cable Router} & \scriptsize{1} & \scriptsize{\pounds34.99} & \scriptsize{\pounds34.99} \\
   \hline
   \scriptsize{Ethernet cables 1m (3 Pack)} & \scriptsize{1} & \scriptsize{\pounds15.31} & \scriptsize{\pounds15.31} \\
   \hline
@@ -696,7 +692,7 @@ servers allows analysis of inter-service activity during normal network
 activity and during an attack.
 
 The router used in the \texttt{HILV} honeypot is an ASUS RT
-AC66U~\cite{ASUS:17}. The router is configured to use the laboratory-based
+AC66U~\cite{ASUS:17} although a TP Link TL-R470T+~\cite{TPLINKR470:18} would also be suitable. The router is configured to use the laboratory-based
 \texttt{DHCP} server to acquire an  address. The \texttt{IP} address is
 allocated from a reservation which allows a consistent mapping of the forwarded
 \texttt{IP} address from the Internet-based router to the \texttt{HILV} honeypot
@@ -793,7 +789,7 @@ remote configuration and monitoring.
 The \texttt{LIHV} honeypot is not intended for use in a reconfigurable
 environment and does not require any monitoring or control of the network. No
 port monitoring or throttling is required and all activity monitoring is
-achieved using log file monitoring. The log files are made available 
+achieved using log files. The log files are made available 
 for analysis of service-based access activity via a web-link.
 
 The \texttt{LIHV} honeypot is a single 1U \texttt{LAMP} server (HPE ProLiant DL360 Gen9 Server~\cite{HPE:17} costing approx \pounds2000), located in a
@@ -1046,7 +1042,7 @@ projects. A sample of these projects is described below.
        executing an attack and analysing the bandwidth effect of the network.
 \end{itemize}
 
-\section{Student Feedback\label{sec:Feedback}}
+\subsection{Student Feedback\label{sec:Feedback}}
 
 In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. the cohort consisted of 48 students and a response was received from 30 students, the results are as follows:
 \newline

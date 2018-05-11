@@ -691,9 +691,7 @@ protocols to be managed from within the honeypot using small-scale servers
 servers allows analysis of inter-service activity during normal network
 activity and during an attack.
 
-The router used in the \texttt{HILV} honeypot is an ASUS RT
-AC66U~\cite{ASUS:17} although a TP Link TL-R470T+~\cite{TPLINKR470:18} would also be suitable. The router is configured to use the laboratory-based
-\texttt{DHCP} server to acquire an  address. The \texttt{IP} address is
+A low-cost such as a a TP Link TL-R470T+~\cite{TPLINKR470:18} is adequate for use in the \texttt{HILV}. The router is configured to use the laboratory-based \texttt{DHCP} server to acquire an  address. The \texttt{IP} address is
 allocated from a reservation which allows a consistent mapping of the forwarded
 \texttt{IP} address from the Internet-based router to the \texttt{HILV} honeypot
 router. Defining the mapping in this way allows external host names
@@ -718,15 +716,14 @@ normally referred to as a \texttt{DMZ} (demilitarised zone) redirection~\cite{MB
 A key component of the \texttt{HILV} honeypot is a commercially available,
 8-port, managed switch. The switch supports layer 2 management~\cite{ST:98} to
 provide two specific technologies: port mirroring and port throttling. Suitable
-switches include \texttt{HP 2530-08}~\cite{HP:17} and \texttt{TP-LINK TL-SG2008}~\cite{TP:17}.
+switches include \texttt{HP 2530-08}~\cite{HP:17}, \texttt{TP-LINK TL-SG2008}~\cite{TP:17} or a TP Link TL-SG108E~\cite{TPSG108E:18}.
 The combination of port mirroring and port throttling provides a reliable architecture
 for packet capture. 
 \newline\newline
 \noindent\emph{Port mirroring}:
 Switches maintain an in-memory table of ports and \texttt{MAC} addresses to
-support the efficient delivery of frames. An effect of result of this approach
-is that frames are transferred port to port rather than being broadcast. This
-complicates the process of packet capture. When using a honeypot, packet
+support the efficient delivery of frames. This ensures that packets are transferred port to port rather than being broadcast. port to port communications are known as ``virtual circuits''. This
+technology complicates the process of packet capture. When using a honeypot, packet
 capture is a vital part of the architecture for the analysis of any
 network-based attack vector. Using a managed switch (as discussed above), it is
 possible to configure the ports on the switch to be mirrored to a specific
@@ -738,7 +735,7 @@ port can be provided, where the transmission capability of the port is removed,
 monitoring device from adding traffic to the network. Alternatively, some
 manufacturers configure the mirroring port to offer full transmit/receive
 functionality, in addition to the mirroring capability (as in the case of a
-TP-SG2008). This allows the attached monitor to also be used as a device within
+TP-SG108E). This allows the attached monitor to also be used as a device within
 the honeypot. If the monitor port provides full functionality, the addition of
 a LAN tap~\cite{RB:13} can remove the transmission facilities of the port,
 creating monitor-only functionality when required, as shown in
@@ -1044,13 +1041,13 @@ projects. A sample of these projects is described below.
 
 \subsection{Student Feedback\label{sec:Feedback}}
 
-In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. the cohort consisted of 48 students and a response was received from 30 students, the results are as follows:
+In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. The cohort consisted of 48 students and a response was received from 30 students, the results are as follows:
 \newline
 \noindent\textbf{\textit{Q1:}} Students were asked how useful the \texttt{HILV} honeypot was within the practical research component of the module. 100\% of the students found the honeypot useful with 86.6\% rating the usefulness as very useful or excellent. This result was not outside of what was expected as it is usual for students to prefer to have access to physical equipment. 
 \newline
-\noindent\textbf{\textit{Q2:}} Students were asked how easy it was to configure the \texttt{HILV} honeypot. The configuration was to a base configuration which the students then had to adapt to their individual requirements. All the students found the \texttt{HILV} uncomplicated to setup in terms of creating the base operating system images for the servers. 56.5\% found the \texttt{HILV} either easy or very easy to setup. 
+\noindent\textbf{\textit{Q2:}} Students were asked how easy it was to configure the \texttt{HILV} honeypot. Students were provided with a basic configuration which they where required to extend and adapt to their own requirements. 100\% of the students found the \texttt{HILV} either okay, easy or very easy to setup with 18\% finding the configuration very easy, 40\% quite easy and 42\% finding it okay. 
 
-\noindent The main reasons for this ease of use where due to:
+\noindent This easy of use can be attributed to the following factors:
 \begin{itemize}
 \item The base configuration of the honeypot had a fixed configuration for the router and switch, this allowed students to sign out any of the 16 honeypots from the loans facility. 
 \item The students created their own base servers from a set of images distributed from the laboratory \texttt{NAS} drive. 
@@ -1064,7 +1061,7 @@ The \texttt{HILV} honeypots have been available for several years now and studen
 
 \section{Conclusion and Future Work\label{sec:ConclusionFuture}}
 
-The development of the \texttt{HILV} honeypot environment and it's integration with the general purpose networks lab and the \texttt{LIHV} laboratory based honeypot has proved successful
+The development of the \texttt{HILV} honeypot environment and its integration with the general purpose networks lab and the \texttt{LIHV} laboratory based honeypot has proved successful
 for both teaching and research. The cost of the \texttt{HILV} honeypot deployment has been reduced
 to such an extent that rather than the laboratory supporting the single \texttt{LIHV} honeypot
 platform, which has to be reconfigured between sessions, the laboratory can now
@@ -1084,7 +1081,7 @@ Student numbers have risen sharply for cybersecurity courses and the
 use of the honeypots has allowed additional levels of cybersecurity to be
 incorporated into existing network courses. This has had a strategic impact on
 the University since the B.C.S. (British Computing Society) added
-cybersecurity as a required part of it's accreditation process.
+cybersecurity as a required part of its accreditation process.
 
 Our aim is to increase the number of \texttt{HILV} honeypots to accommodate the
 increasing number of students. The low cost of the platform makes this an

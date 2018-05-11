@@ -445,7 +445,7 @@ Salah et al.~\cite{SHZ:15} describe the use of cloud services such as Amazon Ela
 
 Lee et al.~\cite{LUFC:11} describe a very popular approach to a competition-based network configuration where a small network of physical devices (usually PCs) provides an environment where teams can compete in activities such as capture-the-flag or time trials. The network is a simple \texttt{LAN} with multiple clients and servers located on a subnet. From a cybersecurity research perspective the infrastructure provides limited access to network traffic for specific attack analysis and therefore limits its effectiveness as an analysis tool. The environment does provide users with a platform for trying out attacks which are usually using from well established tool-sets such as those provided by \texttt{Kali Linux}~\cite{OS:17}. This type of platform works well for events such as those organised by the Cyber Security Challenge UK organisation~\cite{CSCUK:18} where cybersecurity is a competitive activity rather than a research topic.   
 
-Aspects of the deployment discussed in this paper are similar to those of Romney and Lanoy, Hiber et al., Wannous and Nakano, and Marsa et al. in the use of virtualisation. In the context of this paper virtualisation is used to add resources to the architecture. The deployment is similar to Abler et al. in the use of a hardware-based solution but the focus of this paper is on the \textit{simultaneous} usage of multiple research honeypots in a laboratory environment for undergraduate and post-graduate students. The paper extends their work by deploying the honeypot environments as a discrete physical configuration to increase their potential as a learning environment. Spitner~\cite{LS:03} discusses many cybersecurity attack techniques and our physically deployed \texttt{HILV} lends itself to their investigation. 
+Aspects of the deployment discussed in this paper are similar to those of Romney and Lanoy, Hiber et al., Wannous and Nakano, and Marsa et al. in the use of virtualisation. In the context of this paper virtualisation is used to add resources to the architecture. The deployment is similar to Abler et al. in the use of a hardware-based solution but the focus of this paper is on the \textit{simultaneous} usage of multiple research honeypots in a laboratory environment for undergraduate and post-graduate students. The paper extends their work by deploying the honeypot environments as a discrete physical configuration to increase their potential as a learning environment. Spitner~\cite{LS:03} discusses many cybersecurity attack techniques and our physically deployed \texttt{HILV} honeypot lends itself to their investigation. 
 
 The honeypot designs in this paper also extend the ability to deploy multi-honeypot
 experimental environments as discussed by Duffany~\cite{JD:08}. This is
@@ -691,7 +691,7 @@ protocols to be managed from within the honeypot using small-scale servers
 servers allows analysis of inter-service activity during normal network
 activity and during an attack.
 
-A low-cost such as a a TP Link TL-R470T+~\cite{TPLINKR470:18} is adequate for use in the \texttt{HILV}. The router is configured to use the laboratory-based \texttt{DHCP} server to acquire an  address. The \texttt{IP} address is
+A low-cost router such as a TP Link TL-R470T+~\cite{TPLINKR470:18} is adequate for use in the \texttt{HILV} honeypot. The router is configured to use the laboratory-based \texttt{DHCP} server to acquire an  address. The \texttt{IP} address is
 allocated from a reservation which allows a consistent mapping of the forwarded
 \texttt{IP} address from the Internet-based router to the \texttt{HILV} honeypot
 router. Defining the mapping in this way allows external host names
@@ -713,13 +713,15 @@ normally referred to as a \texttt{DMZ} (demilitarised zone) redirection~\cite{MB
 \end{figure*}
 
 \noindent\textit{\textbf{Switch Configuration}}:
+
 A key component of the \texttt{HILV} honeypot is a commercially available,
 8-port, managed switch. The switch supports layer 2 management~\cite{ST:98} to
 provide two specific technologies: port mirroring and port throttling. Suitable
-switches include \texttt{HP 2530-08}~\cite{HP:17}, \texttt{TP-LINK TL-SG2008}~\cite{TP:17} or a TP Link TL-SG108E~\cite{TPSG108E:18}.
-The combination of port mirroring and port throttling provides a reliable architecture
-for packet capture. 
-\newline\newline
+switches include \texttt{HP 2530-08}~\cite{HP:17}, \texttt{TP-LINK
+TL-SG2008}~\cite{TP:17}, and \texttt{TP Link TL-SG108E}~\cite{TPSG108E:18}.  The
+combination of port mirroring and port throttling provides a reliable
+architecture for packet capture.  \newline\newline
+
 \noindent\emph{Port mirroring}:
 Switches maintain an in-memory table of ports and \texttt{MAC} addresses to
 support the efficient delivery of frames. This ensures that packets are transferred port to port rather than being broadcast. port to port communications are known as ``virtual circuits''. This
@@ -948,7 +950,9 @@ The use of Raspberry Pi boards in the \texttt{HILV} honeypots has allowed
 diverse subjects to be taught more easily due to their use of removable media
 to store the operating system. The setup time for laboratories and teaching
 sessions has been dramatically reduced compared to our previous approach of
-using small clusters of PC's with removable drives, this is reflected in the students response to the configuration of the \texttt{LIHV} as discussed in section~\ref{sec:Feedback}.
+using small clusters of PC's with removable drives, this is reflected in the
+students response to the configuration of the \texttt{LIHV} as discussed in
+section~\ref{sec:Feedback}.
 
 There have been several hardware changes to the \texttt{HILV} honeypots over
 this time but the basic architecture has remained unchanged. The latest change
@@ -1007,9 +1011,13 @@ students, providing them with a rich environment for experimentation and
 analysis.
 
 \subsection{Supported Projects\label{Projects}}
-
-The \texttt{HILV} honeypots are used extensively for cybersecurity final year
-projects. A sample of these projects is described below.
+The \texttt{HILV} honeypots have been available for several years now and
+students who move to the final year of the cybersecurity undergraduate
+programme tend to carry out research-based projects. Usually these involve the
+use of the basic \texttt{HILV} honeypot, but some projects add additional
+components to the honeypot such as firewalls (pfSense~\cite{PFSENSE:18} or
+ipFire~\cite{IPFIRE:18}) or wireless access points for the analysis of phone or
+tablet based application attacks. A sample of recent projects is described below.
 
 \begin{itemize} 
   \item \noindent \emph{Multi-Tiered defence analysis of a simulated cyber
@@ -1041,24 +1049,47 @@ projects. A sample of these projects is described below.
 
 \subsection{Student Feedback\label{sec:Feedback}}
 
-In academic year 17/18 following the delivery of the security case project a poll was carried out to identify the effectiveness of the laboratory configurations. The cohort consisted of 48 students and a response was received from 30 students, the results are as follows:
-\newline
-\noindent\textbf{\textit{Q1:}} Students were asked how useful the \texttt{HILV} honeypot was within the practical research component of the module. 100\% of the students found the honeypot useful with 86.6\% rating the usefulness as very useful or excellent. This result was not outside of what was expected as it is usual for students to prefer to have access to physical equipment. 
-\newline
-\noindent\textbf{\textit{Q2:}} Students were asked how easy it was to configure the \texttt{HILV} honeypot. Students were provided with a basic configuration which they where required to extend and adapt to their own requirements. 100\% of the students found the \texttt{HILV} either okay, easy or very easy to setup with 18\% finding the configuration very easy, 40\% quite easy and 42\% finding it okay. 
-
-\noindent This easy of use can be attributed to the following factors:
+In academic year 2017/18, following the delivery of the security case project,
+we carried out a small survey to gauge student opinion about the effectiveness
+of the laboratory configurations. We canvassed a cohort of 48 students of whom
+30 responded. The results of the survey are summarised briefly below.
 \begin{itemize}
-\item The base configuration of the honeypot had a fixed configuration for the router and switch, this allowed students to sign out any of the 16 honeypots from the loans facility. 
-\item The students created their own base servers from a set of images distributed from the laboratory \texttt{NAS} drive. 
-Following each practical session the students retained the \texttt{SD} cards for use at the next session. The \texttt{SD} cards provided a stateful configuration of their work. 
-\item The students were able to backup their entire project using a ``dump'' (\texttt{dd}) of the \texttt{SD} cards.
+  \item \noindent\emph{Utility:} Students were asked how useful they found the
+\texttt{HILV} honeypot for the practical research component of the module. All
+students found the honeypot useful, with 86.6\% rating the usefulness as very
+useful or excellent. This result matched our expectations, as students usually
+report that they learn better when they have access to physical equipment.
+  \item \noindent\emph{Ease of use:} Students were asked how easy it was to
+configure the \texttt{HILV} honeypot. This question related to scenarios in
+which students were provided with a basic configuration and were required to
+extend and adapt it to their own requirements. 98\% of students reported that
+it was not difficult to configure the honeypot, with the majority indicating
+that they found it easy or very easy.
+\par\noindent This ease of use can be attributed to the following factors.
+  \begin{itemize} 
+    \item The base configuration of the honeypot has a fixed configuration for
+      the router and switch, which allows students to sign out any of the
+      honeypots from the loans facility and use it immediately in a
+      `plug-and-play' fashion for many exercises.  
+    \item The students created their own base servers from a set of images
+      distributed from the laboratory \texttt{NAS} drive.  Following each
+      practical session the students retained the \texttt{SD} cards for use at
+      the next session. The \texttt{SD} cards provided a stateful configuration
+      of their work.  
+    \item The students were able to backup their entire project using a ``dump''
+      (\texttt{dd}) of the \texttt{SD} cards.
+  \end{itemize}
+  \item \noindent\emph{Previous experience and likely future use}: Students
+were asked if they had used a honeypot earlier in their studies. Most students
+(93.3\%) had not used a honeypot before their undergraduate studies and
+therefore had no preconception of what to expect. In contrast, when asked if
+they would consider using the \texttt{HILV} honeypot again, the majority
+(96.6\%) of the students indicated that they would use it for further studies. 
 \end{itemize}
-
-\noindent\textbf{\textit{Q3:}} Students were asked if they had used a honeypot before the \texttt{HILV}. The majority (93.3\%) of the students had not used a honeypot before their undergraduate studies and therefore had no preconception of what to expect. In contrast when asked if they would consider using the \texttt{HILV} again (\textbf{\textit{Q4}}), the majority (96.6\%) of the students indicated that they would use the \texttt{HILV} for further studies. 
-
-The \texttt{HILV} honeypots have been available for several years now and students who move to the final year of the cyber security undergraduate programme tend to carry out research based projects. Usually they involve the basic unchanged \texttt{HILV} honeypot but some projects add additional components to the honeypot such as firewalls (pfSense~\cite{PFSENSE:18} or ipFire~\cite{IPFIRE:18}) or wireless access points for the analysis of phone or tablet based application attacks.  
-
+More extensive and more careful studies are needed to quantify the 
+pedagogical benefits of our approach but these preliminary results are an 
+indication of a very positive student reaction to their experience in our
+laboratory.
 \section{Conclusion and Future Work\label{sec:ConclusionFuture}}
 
 The development of the \texttt{HILV} honeypot environment and its integration with the general purpose networks lab and the \texttt{LIHV} laboratory based honeypot has proved successful

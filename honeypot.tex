@@ -1,281 +1,74 @@
-\documentclass[10pt,journal]{IEEEtran}
-\usepackage{multicol}
-% *** MISC UTILITY PACKAGES ***
-%
-%\usepackage{ifpdf}
-% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
-% compilation based on whether the output is pdf or dvi.
-% usage:
-% \ifpdf
-%   % pdf code
-% \else
-%   % dvi code
-% \fi
-% The latest version of ifpdf.sty can be obtained from:
-% http://www.ctan.org/pkg/ifpdf
-% Also, note that IEEEtran.cls V1.7 and later provides a builtin
-% \ifCLASSINFOpdf conditional that works the same way.
-% When switching from latex to pdflatex and vice-versa, the compiler may
-% have to be run twice to clear warning/error messages.
+\documentclass{ieeeaccess}
+  \usepackage{cite}
+  \usepackage{amsmath,amssymb,amsfonts}
+  %\usepackage{algorithmic}
+  \usepackage{graphicx}
+  \usepackage{textcomp}
+  \usepackage{relsize}
+  \usepackage{algpseudocode}
+  \renewcommand{\algorithmicrequire}{\textbf{Input:}}
+  \renewcommand{\algorithmicensure}{\textbf{Output:}}
+  \usepackage{array}
+  %\usepackage{caption}
+  %\usepackage[caption=false,font=footnotesize]{subfig}
+  %\usepackage{fixltx2e}
+  \usepackage{float}
+  \usepackage{url}
+  %\usepackage{becs}
+  \usepackage{listings}
+  \usepackage{hhline}
+  \lstset{%
+    basicstyle=\scriptsize,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    xleftmargin=2em
+  }
+  \usepackage{color}
+  \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+      T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+  \let\latexvec=\vec
+  \let\vec=\latexvec
+  \interdisplaylinepenalty=2500
+  \newtheorem{definition}{Definition}
+  \newtheorem{exampleb}{Example}
+  \newcommand{\subsubsubsection}[1]{\medskip\par\emph{#1:}}
+  \hyphenation{op-tical net-works semi-conduc-tor}
+  
+  \begin{document}
+  \history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
+  \doi{10.1109/ACCESS.2017.DOI}
+  
+  \title{A Flexible Laboratory Environment Supporting Honeypot Deployment for Teaching Real-World Cybersecurity Skills}
+  \author{\uppercase{Neil Eliot}\authorrefmark{1},
+  \uppercase{David Kendall\authorrefmark{1}, and Michael Brockway\authorrefmark{1}}}
+  \address[1]{Northumbria University, Department of Computing and Information Sciences, 
+  Newcastle upon Tyne, NE1 8ST}
+  
+  \markboth
+  {Eliot \headeretal: A Flexible Laboratory Environment Supporting Honeypot Deployment}
+  {Eliot \headeretal: A Flexible Laboratory Environment Supporting Honeypot Deployment}
+  
+  \corresp{Corresponding author: Neil Eliot (e-mail: neil.eliot@northumbria.ac.uk).}
+  
 
-% *** CITATION PACKAGES ***
-%
-%\usepackage{cite}
-% cite.sty was written by Donald Arseneau
-% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
-% \cite{} output to follow that of the IEEE. Loading the cite package will
-% result in citation numbers being automatically sorted and properly
-% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
-% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
-% \cite will automatically add leading space, if needed. Use cite.sty's
-% noadjust option (cite.sty V3.8 and later) if you want to turn this off
-% such as if a citation ever needs to be enclosed in parenthesis.
-% cite.sty is already installed on most LaTeX systems. Be sure and use
-% version 5.0 (2009-03-20) and later if using hyperref.sty.
-% The latest version can be obtained at:
-% http://www.ctan.org/pkg/cite
-% The documentation is contained in the cite.sty file itself.
-
-% *** GRAPHICS RELATED PACKAGES ***
-%
-\ifCLASSINFOpdf
-  \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
-\else
-  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
-  % will default to the driver specified in the system graphics.cfg if no
-  % driver is specified.
-  \usepackage[dvips]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
-\fi
-% graphicx was written by David Carlisle and Sebastian Rahtz. It is
-% required if you want graphics, photos, etc. graphicx.sty is already
-% installed on most LaTeX systems. The latest version and documentation
-% can be obtained at: 
-% http://www.ctan.org/pkg/graphicx
-% Another good source of documentation is "Using Imported Graphics in
-% LaTeX2e" by Keith Reckdahl which can be found at:
-% http://www.ctan.org/pkg/epslatex
-%
-% latex, and pdflatex in dvi mode, support graphics in encapsulated
-% postscript (.eps) format. pdflatex in pdf mode supports graphics
-% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
-% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
-% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
-% which can result in "jaggedy"/blurry rendering of lines and letters as
-% well as large increases in file sizes.
-%
-% You can find documentation about the pdfTeX application at:
-% http://www.tug.org/applications/pdftex
-
-% *** MATH PACKAGES ***
-%
-%\usepackage{amsmath}
-% A popular package from the American Mathematical Society that provides
-% many useful and powerful commands for dealing with mathematics.
-%
-% Note that the amsmath package sets \interdisplaylinepenalty to 10000
-% thus preventing page breaks from occurring within multiline equations. Use:
-%\interdisplaylinepenalty=2500
-% after loading amsmath to restore such page breaks as IEEEtran.cls normally
-% does. amsmath.sty is already installed on most LaTeX systems. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/pkg/amsmath
-
-% *** SPECIALIZED LIST PACKAGES ***
-%
-%\usepackage{algorithmic}
-% algorithmic.sty was written by Peter Williams and Rogerio Brito.
-% This package provides an algorithmic environment fo describing algorithms.
-% You can use the algorithmic environment in-text or within a figure
-% environment to provide for a floating algorithm. Do NOT use the algorithm
-% floating environment provided by algorithm.sty (by the same authors) or
-% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
-% algorithm float types and packages that provide these will not provide
-% correct IEEE style captions. The latest version and documentation of
-% algorithmic.sty can be obtained at:
-% http://www.ctan.org/pkg/algorithms
-% Also of interest may be the (relatively newer and more customizable)
-% algorithmicx.sty package by Szasz Janos:
-% http://www.ctan.org/pkg/algorithmicx
-
-% *** ALIGNMENT PACKAGES ***
-%
-%\usepackage{array}
-% Frank Mittelbach's and David Carlisle's array.sty patches and improves
-% the standard LaTeX2e array and tabular environments to provide better
-% appearance and additional user controls. As the default LaTeX2e table
-% generation code is lacking to the point of almost being broken with
-% respect to the quality of the end results, all users are strongly
-% advised to use an enhanced (at the very least that provided by array.sty)
-% set of table tools. array.sty is already installed on most systems. The
-% latest version and documentation can be obtained at:
-% http://www.ctan.org/pkg/array
-
-% IEEEtran contains the IEEEeqnarray family of commands that can be used to
-% generate multiline equations as well as matrices, tables, etc., of high
-% quality.
-
-
-% *** SUBFIGURE PACKAGES ***
-%\ifCLASSOPTIONcompsoc
-%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
-%\else
-%  \usepackage[caption=false,font=footnotesize]{subfig}
-%\fi
-% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
-% for subfigure.sty, the latter of which is no longer maintained and is
-% incompatible with some LaTeX packages including fixltx2e. However,
-% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
-% which will override IEEEtran.cls' handling of captions and this will result
-% in non-IEEE style figure/table captions. To prevent this problem, be sure
-% and invoke subfig.sty's "caption=false" package option (available since
-% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
-% handling of captions.
-% Note that the Computer Society format requires a larger sans serif font
-% than the serif footnote size font used in traditional IEEE formatting
-% and thus the need to invoke different subfig.sty package options depending
-% on whether compsoc mode has been enabled.
-%
-% The latest version and documentation of subfig.sty can be obtained at:
-% http://www.ctan.org/pkg/subfig
-
-% *** FLOAT PACKAGES ***
-%
-%\usepackage{fixltx2e}
-% fixltx2e, the successor to the earlier fix2col.sty, was written by
-% Frank Mittelbach and David Carlisle. This package corrects a few problems
-% in the LaTeX2e kernel, the most notable of which is that in current
-% LaTeX2e releases, the ordering of single and double column floats is not
-% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
-% single column figure to be placed prior to an earlier double column
-% figure.
-% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
-% corrections already built into the system in which case a warning will
-% be issued if an attempt is made to load fixltx2e.sty as it is no longer
-% needed.
-% The latest version and documentation can be found at:
-% http://www.ctan.org/pkg/fixltx2e
-
-
-%\usepackage{stfloats}
-% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
-% the ability to do double column floats at the bottom of the page as well
-% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
-% LaTeX2e). It also provides a command:
-%\fnbelowfloat
-% to enable the placement of footnotes below bottom floats (the standard
-% LaTeX2e kernel puts them above bottom floats). This is an invasive package
-% which rewrites many portions of the LaTeX2e float routines. It may not work
-% with other packages that modify the LaTeX2e float routines. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/pkg/stfloats
-% Do not use the stfloats baselinefloat ability as the IEEE does not allow
-% \baselineskip to stretch. Authors submitting work to the IEEE should note
-% that the IEEE rarely uses double column equations and that authors should try
-% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
-% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
-% such ways.
-% Do not attempt to use stfloats with fixltx2e as they are incompatible.
-% Instead, use Morten Hogholm'a dblfloatfix which combines the features
-% of both fixltx2e and stfloats:
-%
-% \usepackage{dblfloatfix}
-% The latest version can be found at:
-% http://www.ctan.org/pkg/dblfloatfix
-
-%\ifCLASSOPTIONcaptionsoff
-%  \usepackage[nomarkers]{endfloat}
-% \let\MYoriglatexcaption\caption
-% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
-%\fi
-% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
-% Axel Sommerfeldt. This package may be useful when used in conjunction with 
-% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
-% submissions have lists of figures/tables at the end of the paper and that
-% figures/tables without any captions are placed on a page by themselves at
-% the end of the document. If needed, the draftcls IEEEtran class option or
-% \CLASSINPUTbaselinestretch interface can be used to increase the line
-% spacing as well. Be sure and use the nomarkers option of endfloat to
-% prevent endfloat from "marking" where the figures would have been placed
-% in the text. The two hack lines of code above are a slight modification of
-% that suggested by in the endfloat docs (section 8.4.1) to ensure that
-% the full captions always appear in the list of figures/tables - even if
-% the user used the short optional argument of \caption[]{}.
-% IEEE papers do not typically make use of \caption[]'s optional argument,
-% so this should not be an issue. A similar trick can be used to disable
-% captions of packages such as subfig.sty that lack options to turn off
-% the subcaptions:
-% For subfig.sty:
-% \let\MYorigsubfloat\subfloat
-% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
-% However, the above trick will not work if both optional arguments of
-% the \subfloat command are used. Furthermore, there needs to be a
-% description of each subfigure *somewhere* and endfloat does not add
-% subfigure captions to its list of figures. Thus, the best approach is to
-% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
-% and instead reference/explain all the subfigures within the main caption.
-% The latest version of endfloat.sty and its documentation can obtained at:
-% http://www.ctan.org/pkg/endfloat
-%
-% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
-% later in the document, say, to conditionally put the References on a 
-% page by themselves.
-
-% *** PDF, URL AND HYPERLINK PACKAGES ***
-%
-\usepackage{url}
-% url.sty was written by Donald Arseneau. It provides better support for
-% handling and breaking URLs. url.sty is already installed on most LaTeX
-% systems. The latest version and documentation can be obtained at:
-% http://www.ctan.org/pkg/url
-% Basically, \url{my_url_here}.
-
-% *** Do not adjust lengths that control margins, column widths, etc. ***
-% *** Do not use packages that alter fonts (such as pslatex).         ***
-% There should be no need to do such things with IEEEtran.cls V1.6 and later.
-% (Unless specifically asked to do so by the journal or conference you plan
-% to submit to, of course. )
-
-% correct bad hyphenation here
-\hyphenation{op-tical net-works semi-conduc-tor}
-\usepackage{hhline}
-%\documentclass[journal]{IEEEtran}
-%\usepackage{graphicx}
-%\usepackage[british]{babel}
-% please place your own definitions here and don't use \def but
-%\newcommand{\middot}{\ensuremath{\cdot\:}}
-%
-\begin{document}
-
-\title{A Flexible Laboratory Environment Supporting Honeypot Deployment for 
-Teaching Real-World Cybersecurity Skills
 %\thanks{Grants or other notes
 %about the article that should go on the front page should be
 %placed here. General acknowledgments should be placed at the end of the article.}
-}
 %\subtitle{Do you have a subtitle?\\ If so, write it here}
 
 %\titlerunning{Honeypots in H.E. teaching}        % if too long for running head
 
-\author{Neil~Eliot~, 
-        David~Kendall, 
-        and Michael~Brockway}
+% \author{Neil~Eliot~, 
+%         David~Kendall, 
+%         and Michael~Brockway}
 
-%\thanks{}
+% %\thanks{}
 
-\markboth{Journal of IEEE Transactions on Education}%
-{Eliot \MakeLowercase{\textit{et al.}}: A Flexible Laboratory Environment Supporting Honeypot Deployment for Teaching Real-World Cybersecurity Skills}
+% \markboth{Journal of IEEE Transactions on Education}%
+% {Eliot \MakeLowercase{\textit{et al.}}: A Flexible Laboratory Environment Supporting Honeypot Deployment for Teaching Real-World Cybersecurity Skills}
 
-\maketitle
+% \maketitle
 
 %\IEEEtitleabstractindextext{%
 \begin{abstract}
@@ -307,7 +100,8 @@ Teaching Real-World Cybersecurity Skills
   Cybersecurity, Network Security, Honeypot, Teaching
 \end{IEEEkeywords}
 %} 
-
+\titlepgskip=-15pt
+\maketitle
 %\IEEEraisesectionheading{\section{Introduction}\label{intro}}
 \section{Introduction}\label{intro}
 When teaching cybersecurity in an academic environment there are many
@@ -576,13 +370,16 @@ can be connected to the main laboratory infrastructure in a controlled way
 using a commercially available cable router, as shown in
 Fig.~\ref{fig:HPOverview}.
 
-\begin{figure*}[!ht]
-\begin{center}
-	\includegraphics[scale=0.7]{Images/Honeypot1.eps}
-\caption{\texttt{HILV} honeypot overview}
-\label{fig:HPOverview}
-\end{center}
-\end{figure*}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{Images/Honeypot1}
+{\texttt{HILV} honeypot overview\label{fig:HPOverview}}
+
+% \begin{figure*}[!ht]
+% \begin{center}
+% 	\includegraphics[scale=0.7]{Images/Honeypot1.eps}
+% \caption{\texttt{HILV} honeypot overview}
+% \label{fig:HPOverview}
+% \end{center}
+% \end{figure*}
 
 Figures~\ref{fig:HP1}~and~\ref{fig:HP2} shows the complete device as deployed
 in the specialist teaching laboratories. The complete \texttt{HILV} honeypot
@@ -611,18 +408,24 @@ The two additional devices shown in Fig.~\ref{fig:HPOverview} could be PCs
 acting as attack entry points or victims. These devices could also be PCs
 supporting virtualisation to extend the honeypot's functionality.
 
-\begin{figure}[ht]
-  \centering
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Images/HP1.eps}
-    \caption{\texttt{HILV} honeypot side view\label{fig:HP1}}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Images/HP2.eps}
-    \caption{\texttt{HILV} honeypot top view\label{fig:HP2}}
-  \end{minipage}
-\end{figure}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/HP1}
+{\texttt{HILV} honeypot side view\label{fig:HP1}}
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/HP2}
+{\texttt{HILV} honeypot top view\label{fig:HP2}}
+
+% \begin{figure}[ht]
+%   \centering
+%   \begin{minipage}[ht]{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{Images/HP1.eps}
+%     \caption{\texttt{HILV} honeypot side view\label{fig:HP1}}
+%   \end{minipage}
+%   \hfill
+%   \begin{minipage}[ht]{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{Images/HP2.eps}
+%     \caption{\texttt{HILV} honeypot top view\label{fig:HP2}}
+%   \end{minipage}
+% \end{figure}
 
 %% \begin{figure}[htb]
 %% \begin{center}
@@ -704,13 +507,16 @@ configured to  ``point'' to a target machine within the honeypot,
 as shown in Fig.~\ref{fig:Forward}. In small-scale routers, this operation is
 normally referred to as a \texttt{DMZ} (demilitarised zone) redirection~\cite{MB:01}.
 \newline
-\begin{figure*}[ht]
-\begin{center}
-	\includegraphics[scale=0.34]{Images/Forward.eps}
-\caption{Address/Port forwarding}
-\label{fig:Forward}
-\end{center}
-\end{figure*}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{Images/Forward}
+{Address/Port forwarding\label{fig:Forward}}
+
+% \begin{figure*}[ht]
+% \begin{center}
+% 	\includegraphics[scale=0.34]{Images/Forward.eps}
+% \caption{Address/Port forwarding}
+% \label{fig:Forward}
+% \end{center}
+% \end{figure*}
 
 \noindent\textit{\textbf{Switch Configuration}}:
 
@@ -759,12 +565,15 @@ effect of this is that as frames are transferred between ports they are
 reliably replicated via the backplane to the monitor port. This configuration
 satisfies requirement 8.
 
-\begin{figure}[ht]
-\begin{center}
-	\includegraphics[scale=0.4]{Images/Throttle.eps}
-\caption{Port throttling\label{fig:throttling}}
-\end{center}
-\end{figure}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7cm]{Images/Throttle.eps}
+{Port throttling\label{fig:throttling}}
+
+% \begin{figure}[ht]
+% \begin{center}
+% 	\includegraphics[scale=0.4]{Images/Throttle.eps}
+% \caption{Port throttling\label{fig:throttling}}
+% \end{center}
+% \end{figure}
 
 \noindent\textit{\textbf{Internet Support}}:
 Access to the Internet from the honeypot is possible through the double
@@ -803,13 +612,16 @@ laboratory or via the Internet as a bastion server~\cite{MB:05}. This allows
 access from within the laboratory but also from outside the laboratory to
 support directed learning tasks and also to support collaborative ventures.
 
-\begin{figure}[ht]
-\begin{center}
-	\includegraphics[scale=0.4]{Images/Infrastructure2.eps}
-  \caption{\texttt{LIHV} honeypot overview}
-\label{fig:Overview2}
-\end{center}
-\end{figure}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7cm]{Images/Infrastructure2.eps}
+{\texttt{LIHV} honeypot overview\label{fig:Overview2}}
+
+% \begin{figure}[ht]
+% \begin{center}
+% 	\includegraphics[size=14cm]{Images/Infrastructure2.eps}
+%   \caption{\texttt{LIHV} honeypot overview}
+% \label{fig:Overview2}
+% \end{center}
+% \end{figure}
 
 \subsection{General Networking Laboratory}
 
@@ -817,24 +629,30 @@ The flexible laboratory environment needs to provide a re-configurable physical
 networking layer. This is provided by a structured cabling architecture as
 shown in~Fig.~\ref{fig:Overview1}. 
 
-\begin{figure*}[ht]
-  \begin{center}
-    \includegraphics[scale=0.5]{Images/Infrastructure.eps}
-  \caption{General networking laboratory overview}
-  \label{fig:Overview1}
-  \end{center}
-  \end{figure*}  
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{Images/Infrastructure.eps}
+{General networking laboratory overview\label{fig:Overview1}}
+
+% \begin{figure*}[ht]
+%   \begin{center}
+%     \includegraphics[scale=0.5]{Images/Infrastructure.eps}
+%   \caption{General networking laboratory overview}
+%   \label{fig:Overview1}
+%   \end{center}
+%   \end{figure*}  
 
 Internet access is provided by cascading each cabinet's ``internet switch'' to the central communication cabinet's ``internet switch''. A logical view of the internet facilities are shown in Fig.~\ref{fig:NetworkLogical}.
 
-\begin{figure}[ht]
-  \centering
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[scale=0.2]{Images/NetworkLogical.eps}
-  \caption{Logical view of internet access}
-  \label{fig:NetworkLogical}
-  \end{minipage}
-\end{figure}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7cm]{Images/NetworkLogical.eps}
+{Logical view of internet access\label{fig:NetworkLogical}}
+
+% \begin{figure}[ht]
+%   \centering
+%   \begin{minipage}[ht]{0.45\textwidth}
+%     \includegraphics[scale=0.2]{Images/NetworkLogical.eps}
+%   \caption{Logical view of internet access}
+%   \label{fig:NetworkLogical}
+%   \end{minipage}
+% \end{figure}
 
 The communications cabinet is secured; students are not allowed access to it,
 in order to prevent them from reconfiguring the base network and the network
@@ -844,18 +662,24 @@ services equipment. Figure~\ref{fig:CommsCabinet} shows the main infrastructure 
 Business~\cite{BT:17}. A Draytek Vigor 2850~\cite{DC:17} router is used to
 manage the \texttt{ISP} connection. 
 
-\begin{figure}[ht]
-  \centering
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Images/CommsCabinet.eps}
-    \caption{Communications cabinet\label{fig:CommsCabinet}}
-  \end{minipage}
-  \newline
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Images/CommsCabinetServers.eps}
-    \caption{Communications cabinet servers\label{fig:CommsCabinetServers}}
-  \end{minipage}
-\end{figure}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/CommsCabinet.eps}
+{Communications cabinet\label{fig:CommsCabinet}}
+
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/CommsCabinetServers.eps}
+{Communications cabinet servers\label{fig:CommsCabinetServers}}
+
+% \begin{figure}[ht]
+%   \centering
+%   \begin{minipage}[ht]{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{Images/CommsCabinet.eps}
+%     \caption{Communications cabinet\label{fig:CommsCabinet}}
+%   \end{minipage}
+%   \newline
+%   \begin{minipage}[ht]{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{Images/CommsCabinetServers.eps}
+%     \caption{Communications cabinet servers\label{fig:CommsCabinetServers}}
+%   \end{minipage}
+% \end{figure}
 
 Students have unrestricted access to the other cabinets, each of which is
 linked to a laboratory bench supporting 8--10 students, These cabinets contain a selection of switches, routers, \texttt{IP} Telephony, \texttt{IDS}, and Firewall equipment that is required for general network architecture modules as shown in Fig.~\ref{fig:Cabinet}.
@@ -864,13 +688,16 @@ for the benches. Access to the internet from the desktop is achieved through a
 \texttt{NAT} connection from the \texttt{ISP} router in the communications
 cabinet. 
 
-\begin{figure}[ht]
-  \centering
-  \begin{minipage}[ht]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Images/Cabinet.eps}
-    \caption{General networking laboratory cabinet\label{fig:Cabinet}}
-  \end{minipage}
-\end{figure}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/Cabinet.eps}
+{General networking laboratory cabinet\label{fig:Cabinet}}
+
+% \begin{figure}[ht]
+%   \centering
+%   \begin{minipage}[ht]{0.45\textwidth}
+%     \includegraphics[width=\textwidth]{Images/Cabinet.eps}
+%     \caption{General networking laboratory cabinet\label{fig:Cabinet}}
+%   \end{minipage}
+% \end{figure}
 
 The structured cabling allows the resources of each cabinet within the
 laboratory to be linked to the desktop through structured cabling ports.
@@ -932,7 +759,7 @@ laboratory infrastructure.  Subjects that require a laboratory
 Sockets and C Sockets programming are supported by the \texttt{DDNS}
 implementation as discussed in~Sect.~\ref{InfraService}.
 
-\section{Operational Results and supported teaching\label{sec:Results}}
+\section{Operational Results and supported teaching}\label{sec:Results}
 
 The general laboratory infrastructure has been in place, and actively used, for
 10 years. The \texttt{LIHV} honeypot has been in place for 9 years. The
@@ -1047,7 +874,7 @@ tablet based application attacks. A sample of recent projects is described below
        executing an attack and analysing the bandwidth effect of the network.
 \end{itemize}
 
-\subsection{Student Feedback\label{sec:Feedback}}
+\subsection{Student Feedback}\label{sec:Feedback}
 
 In academic year 2017/18, following the delivery of the security case project,
 we carried out a small survey to gauge student opinion about the effectiveness
@@ -1090,7 +917,7 @@ More extensive and more careful studies are needed to quantify the
 pedagogical benefits of our approach but these preliminary results are an 
 indication of a very positive student reaction to their experience in our
 laboratory.
-\section{Conclusion and Future Work\label{sec:ConclusionFuture}}
+\section{Conclusion and Future Work}\label{sec:ConclusionFuture}
 
 The development of the \texttt{HILV} honeypot environment and its integration with the general purpose networks lab and the \texttt{LIHV} laboratory based honeypot has proved successful
 for both teaching and research. The cost of the \texttt{HILV} honeypot deployment has been reduced
@@ -1145,6 +972,7 @@ has been a Senior Lecturer in Computing at Northumbria University since 1989, ex
 has been a Senior Lecturer at Northumbria University for 17 years. His first degree is in pure and applied mathematics (1973-4), his Masters in mathematics (mathematical logic, category theory, 1975), and he has a PhD in computer science (formal methods for distributed embedded systems, 2010) from Northumbria University. Before that Michael worked in teaching and the computing industry.
 \end{IEEEbiography}
 
+\EOD
 
 \end{document}
 

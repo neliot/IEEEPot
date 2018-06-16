@@ -51,49 +51,22 @@
   
   \corresp{Corresponding author: Neil Eliot (e-mail: neil.eliot@northumbria.ac.uk).}
   
-
-%\thanks{Grants or other notes
-%about the article that should go on the front page should be
-%placed here. General acknowledgments should be placed at the end of the article.}
-%\subtitle{Do you have a subtitle?\\ If so, write it here}
-
-%\titlerunning{Honeypots in H.E. teaching}        % if too long for running head
-
-% \author{Neil~Eliot~, 
-%         David~Kendall, 
-%         and Michael~Brockway}
-
-% %\thanks{}
-
-% \markboth{Journal of IEEE Transactions on Education}%
-% {Eliot \MakeLowercase{\textit{et al.}}: A Flexible Laboratory Environment Supporting Honeypot Deployment for Teaching Real-World Cybersecurity Skills}
-
-% \maketitle
-
-%\IEEEtitleabstractindextext{%
 \begin{abstract}
   Teaching practical cybersecurity skills within a University environment poses
   a number of challenges. Students benefit greatly from the opportunity to
-  exercise full control of physical equipment and services, and to have
-  complete insight into their behaviour. Permitting such control of machines on
+  exercise full control of physical equipment and services. Permitting such control of machines on
   a main University campus network presents far too great a risk to security.
-  Provisioning a laboratory entirely dedicated to cybersecurity may not be
-  possible due to resource constraints. This paper describes an alternative
+  This paper describes an alternative
   approach that has been used successfully at Northumbria University for
   several years. In this approach, students have access to an off-campus
   network of laboratory machines with a dedicated connection to the Internet.
   This environment is flexible enough to allow the teaching of general purpose
-  networking and operating systems subjects, while also supporting the complex
-  sandboxed integration of honeypot technologies for the teaching of practical
-  aspects of cybersecurity. The paper presents an analysis of honeypot
+  networking and operating systems subjects while also supporting the integration of honeypot technologies. The paper presents an analysis of honeypot
   architectures and presents two such architectures that have proved to be
-  useful for a variety of cybersecurity investigations.  One of these honeypot
-  types offers students the opportunity for a highly detailed study of
-  cybersecurity attacks and defences at very low cost. It can be usefully
+  useful for cybersecurity investigations.  One of these honeypots
+  offers students the opportunity to study cybersecurity attacks and defences at a very low cost. It can be usefully
   employed as a standalone device or safely integrated into the laboratory
-  environment for the study of more complex scenarios. The main contributions of this paper are the design of a hardware-based, off-campus, network laboratory that is suitable for the deployment of honeypots to allow the delivery of cybersecurity modules. The design and implementation of a small form factor, low cost, configurable research platform, sometimes referred to as a Lab-in-a-Box (LiaB), that is capable of being configured as a ``light-weight'' research honeypot. Also the design and deployment of a laboratory-based honeypot capable of supporting multiple user interactions to support concurrent experiments to be run both locally and remotely. The laboratory-based honeypot is also capable of supporting hackathon events. The paper concludes by outlining how the platform has been successfully deployed within a University
-  environment to support undergraduate and postgraduate teaching and learning.
-  It highlights the types of experimentation and projects that the environment
+  environment for the study of more complex scenarios. The main contributions of this paper are the design of a hardware-based, off-campus, network laboratory that is suitable for the deployment of honeypots to allow the delivery of cybersecurity modules. The design and implementation of a small form factor, low cost, configurable platform, sometimes referred to as a Lab-in-a-Box (LiaB), that is capable of being configured as a ``light-weight'' honeypot. The design and deployment of a laboratory-based honeypot capable of supporting multiple user interactions to support concurrent experiments to be run both locally and remotely. The laboratory-based honeypot is also capable of supporting hackathon events. The paper concludes by outlining how the platform has been successfully deployed within a University environment to support teaching and learning. It highlights the types of experimentation and projects that the environment
   has supported and will support in the future.
 \end{abstract}
 \begin{IEEEkeywords}
@@ -106,7 +79,7 @@
 \section{Introduction}\label{intro}
 When teaching cybersecurity in an academic environment there are many
 considerations that need to be taken into account, not least, respecting other
-users' privacy and their access to the learning and teaching facilities within
+user's privacy and their access to the learning and teaching facilities within
 the academic environment.
 
 Activities such as reconnaissance and experimentation can result in traffic or
@@ -408,10 +381,10 @@ The two additional devices shown in Fig.~\ref{fig:HPOverview} could be PCs
 acting as attack entry points or victims. These devices could also be PCs
 supporting virtualisation to extend the honeypot's functionality.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/HP1}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{Images/HP1}
 {\texttt{HILV} honeypot side view\label{fig:HP1}}
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/HP2}
+\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=8cm]{Images/HP2}
 {\texttt{HILV} honeypot top view\label{fig:HP2}}
 
 % \begin{figure}[ht]
@@ -437,11 +410,11 @@ supporting virtualisation to extend the honeypot's functionality.
 
 The use of Raspberry Pi boards as the main servers for the honeypot simplifies
 reconfiguration and rebuilding of the architecture.  The operating system (and
-configured services) are stored on removable media (micro SD cards) which
+configured services) are stored on removable media (micro \texttt{SD} cards) which
 simplifies server recovery and the maintenance of multiple configurations.
 Images of the honeypot's base configuration can easily be restored. Multiple
 configurations can be kept on different image sets and students can keep
-individual projects as a set of micro SD cards that they retain for the
+individual projects as a set of micro \texttt{SD} cards that they retain for the
 duration of a project.
 
 The approximate cost of the basic \texttt{HILV} honeypot, without additional
@@ -494,7 +467,7 @@ protocols to be managed from within the honeypot using small-scale servers
 servers allows analysis of inter-service activity during normal network
 activity and during an attack.
 
-A low-cost router such as a TP Link TL-R470T+~\cite{TPLINKR470:18} is adequate for use in the \texttt{HILV} honeypot. The router is configured to use the laboratory-based \texttt{DHCP} server to acquire an  address. The \texttt{IP} address is
+A low-cost router such as a \texttt{TP Link TL-R470T+}~\cite{TPLINKR470:18} is adequate for use in the \texttt{HILV} honeypot. The router is configured to use the laboratory-based \texttt{DHCP} server to acquire an  address. The \texttt{IP} address is
 allocated from a reservation which allows a consistent mapping of the forwarded
 \texttt{IP} address from the Internet-based router to the \texttt{HILV} honeypot
 router. Defining the mapping in this way allows external host names
@@ -543,9 +516,9 @@ port can be provided, where the transmission capability of the port is removed,
 monitoring device from adding traffic to the network. Alternatively, some
 manufacturers configure the mirroring port to offer full transmit/receive
 functionality, in addition to the mirroring capability (as in the case of a
-TP-SG108E). This allows the attached monitor to also be used as a device within
+\texttt{TP-SG108E}). This allows the attached monitor to also be used as a device within
 the honeypot. If the monitor port provides full functionality, the addition of
-a LAN tap~\cite{RB:13} can remove the transmission facilities of the port,
+a \texttt{LAN} tap~\cite{RB:13} can remove the transmission facilities of the port,
 creating monitor-only functionality when required, as shown in
 Fig.~\ref{fig:HPOverview}.
 \newline\newline
@@ -600,7 +573,7 @@ port monitoring or throttling is required and all activity monitoring is
 achieved using log files. The log files are made available 
 for analysis of service-based access activity via a web-link.
 
-The \texttt{LIHV} honeypot is a single 1U \texttt{LAMP} server (HPE ProLiant DL360 Gen9 Server~\cite{HPE:17} costing approx \pounds2000), located in a
+The \texttt{LIHV} honeypot is a single 1U \texttt{LAMP} server (\texttt{HPE ProLiant DL360 Gen9 Server}~\cite{HPE:17} costing approx \pounds2000), located in a
 separate cabinet, shown in Fig.~\ref{fig:Overview2}. The cabinet is secured to
 prevent students having direct access to the hardware. It supports the general
 honeypot service to provide students with a platform to carry out simple
@@ -659,7 +632,7 @@ in order to prevent them from reconfiguring the base network and the network
 services equipment. Figure~\ref{fig:CommsCabinet} shows the main infrastructure cabling within the communications cabinet.  The cabinet also contains the primary \texttt{DHCP} and
 \texttt{DNS} servers, a 1U intranet server, a database server and a
 \texttt{NAS} drive as shown in Fig.~\ref{fig:CommsCabinetServers}. It also includes a \texttt{VDSL} fibre link from the \texttt{ISP}. In the case of Northumbria University, the provider is BT
-Business~\cite{BT:17}. A Draytek Vigor 2850~\cite{DC:17} router is used to
+Business~\cite{BT:17}. A \texttt{Draytek Vigor 2850}~\cite{DC:17} router is used to
 manage the \texttt{ISP} connection. 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/CommsCabinet.eps}
@@ -708,7 +681,7 @@ Detection Systems) etc.
 \subsection{Address Range Support}
 
 The use of virtualisation at the desktop (\texttt{GNS3}~\cite{GNS3:17},
-VMWare~\cite{VMWARE:17} and VirtualBox~\cite{O:17}), to support operating
+\texttt{VMWare}~\cite{VMWARE:17} and \texttt{VirtualBox}~\cite{O:17}), to support operating
 systems and networking modules, requires a large number of host addresses to
 support a large number of students deploying statically addressed virtual
 hosts. The base laboratory network infrastructure is configured as a single
@@ -723,7 +696,7 @@ be moved around in the laboratory without requiring address reconfiguration.
 To support the study of operating systems and other general computing subjects,
 the network requires, as a minimum, \texttt{DNS}~\cite{RA:11} and
 \texttt{DHCP}~\cite{DL:02} services. These services are deployed across three
-small-scale, 1U servers (HPE ProLiant DL360 Gen9 Server~\cite{HPE:17}). Two
+small-scale, 1U servers (\texttt{HPE ProLiant DL360 Gen9 Server}~\cite{HPE:17}). Two
 servers are located in the communications cabinet as shown
 in~Fig.~\ref{fig:Overview1}. One server supports \texttt{DHCP} and \texttt{DNS}
 which are integrated to create a \texttt{DDNS}~\cite{SV:06} environment. The
@@ -860,7 +833,7 @@ tablet based application attacks. A sample of recent projects is described below
     \item \noindent \emph{Attack on a secure \texttt{IoT} protocol} This
       project involved developing a network of \texttt{IoT} devices for
       environment analysis (temperature and humidity) and identifying the
-      encrypted traffic (\texttt{MQTT}) which was then attacked using a block
+      encrypted payloads within the traffic (\texttt{MQTT}) which was then attacked using a block
       decryption technique.  
     \item \noindent \emph{Development of an \texttt{IDS} for a full subnet
       \texttt{MitM} attack} This project involved developing a stateful 
@@ -869,7 +842,7 @@ tablet based application attacks. A sample of recent projects is described below
       prevent detection from an \texttt{IDS}} This project involved developing
       a \texttt{RAW} sockets application that crafted packets to
       replicate valid traffic within the subnet environment.  
-     \item \noindent \emph{Analysis of a \texttt{DNS} amplification} This
+     \item \noindent \emph{Analysis of a \texttt{DNS} amplification attack} This
        project involved configuring a vulnerable \texttt{DNS} environment and
        executing an attack and analysing the bandwidth effect of the network.
 \end{itemize}
@@ -952,10 +925,6 @@ switches and routers and large-scale data capture facilities. Such a facility
 will provide an excellent environment for the study of cybersecurity at PhD
 level and has the potential to advance our understanding of the subject
 significantly.
-
-% \begin{acknowledgement}
-% The authors would like to thank Lee Proud (lee.proud@northumbria.ac.uk), Anthony Sterling (anthony.sterling@northumbria.ac.uk) and Laurence Foster (laurence2.foster@northumbria.ac.uk) for their continued support in the devlopment of the cyber security infrastructure within Northumbria University's networking laboratories.
-% \end{acknowledgement}
 
 \bibliographystyle{IEEEtran}
 \bibliography{honeypot}

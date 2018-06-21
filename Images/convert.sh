@@ -5,3 +5,5 @@ do
 	echo "Converting $f To $NAME.pdf"
 	/usr/bin/convert $f $NAME.pdf
 done
+
+/usr/bin/convert -density 600 Honeypot1.eps Honeypot1.pdf

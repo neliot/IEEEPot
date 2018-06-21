@@ -62,54 +62,47 @@
 \maketitle
 %\IEEEraisesectionheading{\section{Introduction}\label{intro}}
 \section{Introduction}\label{intro}
-When teaching cybersecurity in an academic environment there are many
-considerations that need to be taken into account, not least, respecting other
-user's privacy and their access to the learning and teaching facilities within
-the academic environment.
+When teaching cybersecurity in an academic environment, there are many
+considerations that need to be taken into account, not least respect for
+users' privacy and their access to learning and teaching facilities.
+Cybersecurity experiments can result in traffic or services being deployed
+into the network of the teaching environment in ways that may affect other
+users, for example, through service depletion, traffic
+redirection~\cite{ACGO:06,LR:06}, or unauthorised data capture. In the most
+serious cases, the legal rights of other users may be violated.
+For these reasons, there are restrictions on the network activities that are
+permitted on a typical university campus network, designed for general
+student access. For example, port security may be employed to prevent the
+attachment of unauthorised equipment to the network, or firewalls may be used
+to restrict outgoing / incoming traffic from the Internet. Quite rightly,
+students are not allowed administrative privileges to configure the computers
+and other devices attached to the main campus network.
 
-Activities such as reconnaissance and experimentation can result in traffic or
-services being deployed into the teaching network environment. These activities
-may affect other users through service depletion, traffic
-redirection~\cite{ACGO:06,LR:06} or through data capture that may compromise a
-user's legal rights e.g.\ capturing activity or sensitive information that you
-are not authorised to possess.
+When considering the teaching of real-world, practical cybersecurity skills, it
+is clear that these restrictions severely limit the kind of work that can be
+undertaken, and the access to potentially useful teaching
+resources~\cite{ACGO:06,YYLCHJ:04} that can be made available to students. They
+also prevent the control over the network that is required for the effects of
+attacks to be isolated and analysed thoroughly. For example, in order to
+analyse the effects of an attack on the throughput of a protocol, it may be
+necessary to restrict other network activity, such as file transfers or service
+advertising that may impact on the experimental environment and invalidate
+the results. This is not possible on a main campus network.
 
-The environment must also support activities that would normally be prevented
-through configurations designed for production environments. A \emph{normal}
-academic infrastructure designed for general student access may implement
-restrictions through \texttt{MAC} blocking to prevent rogue equipment being
-attached to the network or firewalls to prevent access to specific Internet
-sites. From a cybersecurity teaching perspective this would severely limit the
-scope of the technologies that could be deployed and investigated and limit
-access to potential teaching resources~\cite{ACGO:06,YYLCHJ:04}. Also a general
-purpose network deployment would not provide students with the administrative
-privileges that are required.
-
-When investigating cybersecurity there is also a need for the environment to be
-controlled by reducing services and network protocols in order to allow the
-effects of an attack to be isolated and analysed thoroughly, e.g. when
-analysing the effects of throughput on a protocol, any rogue activities, such
-as file transfers or service advertising, may impact on the experimental
-environment and invalidate the results.
-
-These issues highlight the need for a clear definition of the requirements of
-specialist environments for the study of cybersecurity. This is one of the
+These issues highlight the need for a clear specification of the requirements
+of specialist environments for the study of cybersecurity. This is one of the
 key topics of this paper.
 
-Another key topic of the paper is the role that can be played by \emph{honeypots}
-in providing a stimulating environment for students to study practical
-aspects of cybersecurity.
-
-Honeypots are computer systems that are specifically designed for cybersecurity
-investigations~\cite{FKAS:17,BCF:12}. They can also be considered to be a
-``lab-in-a-box'' (\texttt{LiaB})~\cite{CFDMH:09}. They may be implemented as
-full network deployments, incorporating switches, routers, and servers, they
-may be implemented as a simple program running on a machine, or they can be a
-virtualised platform. 
-
-Honeypots can be classified in terms of the level of interaction and
-analysis that they offer, and also in terms of the volume of concurrent requests
-that they may be required to process.
+Another key topic is the role that can be played by \emph{honeypots} in
+providing a stimulating environment for students to study practical aspects of
+cybersecurity.  Honeypots are computer systems designed specifically for
+cybersecurity investigations~\cite{FKAS:17,BCF:12}.  They exist in a variety of
+forms, e.g. as a ``lab-in-a-box'' (\texttt{LiaB})~\cite{CFDMH:09}; as a full
+network deployment, incorporating switches, routers, and servers; as a simple
+program running on a computer, or as a virtualised platform. 
+We classify honeypots in terms of the level of interaction and analysis that
+they offer, and also in terms of the volume of concurrent requests that they
+are able to process.
 
 \begin{itemize}
 
@@ -164,39 +157,39 @@ type, as shown in Table~\ref{table:HoneypotTypes}.
 
 This paper focuses on \emph{L}ow-\emph{I}nteraction-\emph{H}igh-\emph{V}olume
 (\texttt{LIHV}) and \emph{H}igh-\emph{I}nteraction-\emph{L}ow-\emph{V}olume
-(\texttt{HILV}) honeypots and the requirements of an academic networking
-platform to support their use in the delivery of both undergraduate and
-postgraduate cybersecurity programmes.
-
-The two other types of honeypot are not required for undergraduate purposes.
-\emph{L}ow-\emph{I}nteraction-\emph{L}ow-\emph{V}olume (\texttt{LILV})
-honeypots have limited utility and, if required,  can be deployed inside the
-\texttt{HILV} platform, for example as an academic exercise in installing and
-testing a tool such as \texttt{Kippo}~\cite{SH:15}.
+(\texttt{HILV}) honeypots.  The other two types of honeypot are less
+interesting, for different reasons. On the one hand, a
+\emph{L}ow-\emph{I}nteraction-\emph{L}ow-\emph{V}olume (\texttt{LILV}) honeypot
+has limited utility. If required, its functionality can be provided by an
+\texttt{HILV} honeypot, at no significant extra cost. For example, an exercise
+in installing and testing a tool such as \texttt{Kippo}~\cite{SH:15} can be
+undertaken with an \texttt{HILV} honeypot just as easily as with an
+\texttt{LILV} honeypot.  On the other hand, a
 \emph{H}igh-\emph{I}nteraction-\emph{H}igh-\emph{V}olume (\texttt{HIHV})
-honeypots are expensive to deploy and time-consuming to reconfigure for
-different teaching scenarios. This type of honeypot would be useful in a
-research environment such as a research centre for use in long term
-Internet-based projects. 
+honeypot is expensive to deploy and time-consuming to reconfigure for different
+teaching scenarios. This type of honeypot is useful in a research environment,
+e.g. for use in long term Internet-based projects, but is not required for
+teaching a full range of practical cybersecurity skills at undergraduate level.
 
-We propose that the combination of a flexible, general purpose laboratory
-together with sandboxed deployment of \texttt{LIHV} and \texttt{HILV} honeypots provides 
-a stimulating, cost-effective environment for cybersecurity studies
-in a University setting.
+The main finding of the paper is that a stimulating environment for teaching
+practical, real-world cybersecurity skills, in a university setting, can be
+provided in a safe, cost-effective manner using a combination of a flexible,
+general purpose, network laboratory together with the sandboxed deployment of
+\texttt{LIHV} and \texttt{HILV} honeypots.
 
-The paper is structured as follows: Section~\ref{sec:RelatedWork} discusses the
-current research into the development and deployment of cybersecurity related
-implementations. Section~\ref{sec:TeachingRequire} discusses the requirements
-of a flexible teaching platform for networking and cybersecurity.
+The paper is structured as follows: Section~\ref{sec:RelatedWork} discusses
+current research in approaches to teaching practical aspects of cybersecurity.
+Section~\ref{sec:TeachingRequire} outlines the requirements of a flexible
+laboratory environment for teaching networking and cybersecurity.
 Section~\ref{sec:HoneyArch} classifies honeypot architectures and discusses the
-two most useful for the teaching of networking and cybersecurity in higher
-education.  Section~\ref{sec:netlab} describes the design and implementation of
-a general purpose networking laboratory within which it is possible to deploy
-honeypots safely.  Section~\ref{sec:Results} discusses the effect of the
-deployment of the technologies and the capabilities it has developed for the
-University in terms of teaching networking and cybersecurity.
-Section~\ref{sec:ConclusionFuture} summarises the findings and identifies
-future work that still needs to be investigated or developed.
+two that we have found most useful for the teaching of networking and
+cybersecurity.  Section~\ref{sec:netlab} describes the design and
+implementation of a general purpose networking laboratory, suitable
+for the safe deployment of honeypots.  Section~\ref{sec:Results} discusses how
+the flexible laboratory environment has been used at Northumbria University for
+teaching networking and cybersecurity.  Section~\ref{sec:ConclusionFuture}
+concludes and proposes further work for the development and application of the
+laboratory for teaching and research.
 
 \section{Related Work}\label{sec:RelatedWork}
 There are many papers relating to the development and use of honeypot

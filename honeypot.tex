@@ -12,7 +12,7 @@
       T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
   \interdisplaylinepenalty=2500
   %\newcommand{\subsubsubsection}[1]{\medskip\par\emph{#1:}}
-  \hyphenation{op-tical net-works semi-conduc-tor}
+  \hyphenation{infra-structure cyber-security op-tical net-works semi-conduc-tor}
   
   \begin{document}
   \history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
@@ -78,19 +78,19 @@ to restrict outgoing / incoming traffic from the Internet. Quite rightly,
 students are not allowed administrative privileges to configure the computers
 and other devices attached to the main campus network.
 
-When considering the teaching of real-world, practical cybersecurity skills, it
-is clear that these restrictions severely limit the kind of work that can be
-undertaken, and the access to potentially useful teaching
-resources~\cite{ACGO:06,YYLCHJ:04} that can be made available to students. They
-also prevent the control over the network that is required for the effects of
-attacks to be isolated and analysed thoroughly. For example, in order to
-analyse the effects of an attack on the throughput of a protocol, it may be
-necessary to restrict other network activity, such as file transfers or service
-advertising that may impact on the experimental environment and invalidate
-the results. This is not possible on a main campus network.
+It is clear that these restrictions severely limit the kind of work that can be
+undertaken in teaching real-world, practical cybersecurity skills, and the
+access to potentially useful teaching resources~\cite{ACGO:06,YYLCHJ:04} that
+can be made available to students. They also prevent the control over the
+network that is required for the effects of attacks to be isolated and analysed
+thoroughly. For example, in order to analyse the effects of an attack on the
+throughput of a protocol, it may be necessary to restrict other network
+activity, such as file transfers or service advertising that may impact on the
+experimental environment and invalidate the results. This is not possible on a
+main campus network.
 
 These issues highlight the need for a clear specification of the requirements
-of specialist environments for the study of cybersecurity. This is one of the
+of a specialist network environment for the study of cybersecurity. This is one of the
 key topics of this paper.
 
 Another key topic is the role that can be played by \emph{honeypots} in
@@ -171,7 +171,7 @@ teaching scenarios. This type of honeypot is useful in a research environment,
 e.g. for use in long term Internet-based projects, but is not required for
 teaching a full range of practical cybersecurity skills at undergraduate level.
 
-The main finding of the paper is that a stimulating environment for teaching
+The main finding of this paper is that a stimulating environment for teaching
 practical, real-world cybersecurity skills, in a university setting, can be
 provided in a safe, cost-effective manner using a combination of a flexible,
 general purpose, network laboratory together with the sandboxed deployment of
@@ -197,82 +197,85 @@ technologies. These papers cover both physical and virtual implementations, and
 their application to teaching cybersecurity. 
 
 Romney and Lanoy~\cite{LR:06}, Hiber et al.~\cite{HRS:08}, Wannous and
-Nakano~\cite{WN:10} and Marsa et al.~\cite{MGDL:13} discuss the use of virtual
-environments as a mechanism to deploy laboratory/honeypot platforms and
-networking architectures. Virtualisation works well for general network
-infrastructure simulation to assist in the design of an architecture. However
-when using virtualisation in the context of cybersecurity it can introduce
-limitations. The limitations extend to deployment, resource utilisation, and
-data capture. The main problems arise from the fact that the resources in a
-virtual environment are shared. A laboratory based on \texttt{VLAN} technology
-supporting multiple simultaneous experiments may produce unexpected results due
-to cross boundary impacts such as the exhaustion of a \texttt{MAC} table or
-backplane capabilities causing packet loss in a layer 2 switch during a
-\texttt{DoS} experiment. \texttt{MAC} Flooding experiments executed on a
-\texttt{VLAN} can disable a switch due to the \texttt{VLAN} trunk's
-\texttt{MAC} table exhausting the switches memory. Experiments in a virtual
-environment may breach a sandboxed virtual host which could impact on other
-experiments. The physical networking components of a virtual server are often
-shared across the virtual hosts even though the hosts use virtualised
-addresses, this can produce unexpected results if simultaneous experiment are
-executed. When conducting remote attack experiments the network capture
-capabilities are also complicated by virtualisation due to the mixture of
-traffic from multiple experiments. A simple reconnaissance scan of a network
-could compromise other experiments.
+Nakano~\cite{WN:10} and Marsa et al.~\cite{MGDL:13} discuss the use of a
+variety of virtual environments for the deployment of laboratory/honeypot
+platforms and networking architectures. In our experience, virtualisation works
+well for network simulation but limits the range of
+practical cybersecurity activities that can be undertaken. The limitations
+extend to deployment, resource utilisation, and data capture. The main problems
+arise because the resources in a virtual environment are shared. For example,
+if multiple experiments are performed simultaneously in a laboratory based on
+\texttt{VLAN} technology, unexpected results may be observed due to cross
+boundary effects. We have seen a MAC flood experiment running on one VLAN cause
+unexpected packet loss in an experiment running at the same time on another
+VLAN. This can be caused by exhaustion of a resource shared by VLANs using the
+same switch, e.g. the switch's MAC table or backplane. This issue should cause
+concern to anyone considering performing cybersecurity experiments on a VLAN
+connected to their main university campus network.
 
-Abler et al.~\cite{ACG:06} describes a more independent hardware solution but
-it still requires \texttt{VLAN} technologies and requires a large number of
-routers, switches and servers to provide the environment. The environment is
-configurable but network infrastructure attack-based research could compromise
-multiple users.
+Experiments in a virtual environment may breach a sandboxed virtual host, so
+impacting on other experiments. The physical networking components of a virtual
+server are often shared across the virtual hosts even though the hosts use
+virtualised addresses. Again, this can produce unexpected results when
+experiments are executed simultaneously. When conducting remote attack
+experiments, the network capture capabilities are also complicated by
+virtualisation, due to the mixture of traffic from multiple experiments. For
+example, a simple reconnaissance scan of a network can compromise other
+experiments.
 
-Salah et al.~\cite{SHZ:15} describe the use of cloud services such as Amazon
+Although it is often possible to propose a solution to any particular problem
+caused by the sharing of resources, it is very difficult to be confident that
+one has considered all such problems that may arise when using a virtual
+environment. Having said that, we do often use virtualisation to add resources
+to our physical architecture, but only in circumstances where the sharing of
+the virtualised resources can be carefully controlled.
+
+Abler et al.~\cite{ACG:06} describe a more independent, hardware-based
+environment for cybersecurity experiments, but their environment still relies
+on \texttt{VLAN} technologies and requires a large number of routers, switches
+and servers. Their environment is configurable but it seems that experiments
+involving attacks on network infrastructure could cause problems for multiple,
+simultaneous users.
+
+Salah et al.~\cite{SHZ:15} propose the use of cloud services such as Amazon
 Elastic Compute Cloud (EC2) for the deployment of configurable environments for
 cybersecurity. However many of the issues relating to virtualisation are
-reflected in this approach and the usage agreements for the EC2 platform places
-restrictions on the potential usage. Section 6 of the Customer Agreement states
-the service could be suspended if the usage is deemed a security risk to the
-cloud service or other customers. \textit{``a) your or an End User's use of the
-Service Offerings (i) poses a security risk to the Service Offerings or any
-third party, (ii) could adversely impact our systems, the Service Offerings or
-the systems or Content of any other AWS customer''}~\cite{AWS:18}.
+reflected in this approach. In addition, the usage agreements for the EC2
+platform places restrictions on what can be done in this environment. Section 6
+of the Customer Agreement states that the service could be suspended if
+\textit{``\ldots your or an End User's use of the Service Offerings (i) poses a
+security risk to the Service Offerings or any third party, (ii) could adversely
+impact our systems, the Service Offerings or the systems or Content of any
+other AWS customer''}~\cite{AWS:18}.
 
-Lee et al.~\cite{LUFC:11} describe a very popular approach to a
-competition-based network configuration where a small network of physical
-devices (usually PCs) provides an environment where teams can compete in
-activities such as capture-the-flag or time trials. The network is a simple
-\texttt{LAN} with multiple clients and servers located on a subnet. From a
-cybersecurity research perspective the infrastructure provides limited access
-to network traffic for specific attack analysis and therefore limits its
-effectiveness as an analysis tool. The environment does provide users with a
-platform for trying out attacks which are usually using from well established
-tool-sets such as those provided by \texttt{Kali Linux}~\cite{OS:17}. This type
-of platform works well for events such as those organised by the Cyber Security
-Challenge UK organisation~\cite{CSCUK:18} where cybersecurity is a competitive
-activity rather than a research topic.   
+Lee et al.~\cite{LUFC:11} discuss an approach based on a simple physical
+\texttt{LAN}, with multiple clients and servers located on a subnet.  Their
+environment is very popular for cybersecurity competitions in which teams can
+compete in activities such as capture-the-flag or time trials. The environment
+provides limited access to network traffic, which compromises its effectiveness
+as a tool for the anaysis of specific attacks, but it does provide users with a
+platform for trying out attacks, usually using well established tool-sets, such
+as those provided by \texttt{Kali Linux}~\cite{OS:17}. This type of platform
+works well for events such as those organised by the Cyber Security Challenge
+UK organisation~\cite{CSCUK:18} where cybersecurity is treated as a competitive
+activity rather than a topic for detailed investigation.  
 
-Aspects of the deployment discussed in this paper are similar to those of
-Romney and Lanoy, Hiber et al., Wannous and Nakano, and Marsa et al. in the use
-of virtualisation. In the context of this paper virtualisation is used to add
-resources to the architecture. The deployment is similar to Abler et al. in the
-use of a hardware-based solution but the focus of this paper is on the
-\textit{simultaneous} usage of multiple research honeypots in a laboratory
-environment for undergraduate and post-graduate students. The paper extends
-their work by deploying the honeypot environments as a discrete physical
-configuration to increase their potential as a learning environment.
-Spitner~\cite{LS:03} discusses many cybersecurity attack techniques and our
-physically deployed \texttt{HILV} honeypot lends itself to their investigation. 
+The low cost of the \texttt{HILV} honeypots described in this paper enable us
+to extend the multi-honeypot experimental environments discussed by
+Duffany~\cite{JD:08}, since it becomes affordable to increase the number of
+available honeypots for distributed data capture. Our \texttt{HILV} design also
+produces a honeypot that is small enough to be portable, and therefore easily
+deployed in different locations, not only the laboratory but even a student's
+home environment.
 
-The honeypot designs in this paper also extend the ability to deploy
-multi-honeypot experimental environments as discussed by Duffany~\cite{JD:08}.
-This is achieved by reducing the cost of the \texttt{HILV} honeypot
-architecture to increase the number of available honeypots for a distributed
-data capture deployment. The proposals in this paper also make the
-\texttt{HILV} honeypot architecture small enough to be portable, and therefore
-suitable for deployment in multiple locations. If this architecture is combined
-with the structured network environment and the \texttt{LIHV} honeypot
-architecture the result is a highly configurable environment for running many
-different networking and cybersecurity based projects and activities.
+In comparison with other approaches, we have found that the integration of
+\texttt{HILV} honeypots with an \texttt{LIHV} honeypot in a dedicated network
+laboratory gives a highly configurable, cost-effective, safe environment for
+running many different networking and cybersecurity projects and activities.
+For example, our environment is capable of investigating all of the
+attack techniques discussed by Spitner~\cite{LS:03}, as well as many others.
+
+
 
 \section{Laboratory Requirements}\label{sec:TeachingRequire}
 

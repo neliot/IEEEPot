@@ -106,12 +106,12 @@ are able to process.
 
 \begin{itemize}
 
-  \item \noindent \emph{\textbf{Low Interaction:}} Implements coarse-grained
+  \item \noindent \textit{\textbf{Low Interaction:}} Implements coarse-grained
     services and captures only a low-level of detail about their implementation
     and their interaction with users.  This type of honeypot can also be used
     to act as an attractor for bot-based attacks~\cite{SZB:16}.  
 
-  \item \noindent \emph{\textbf{High Interaction:}} Implements fine-grained
+  \item \noindent \textit{\textbf{High Interaction:}} Implements fine-grained
     services and captures a high-level of detail about their implementation and
     their interaction with users.  This type of honeypot is called a
     ``research'' honeypot by Mairh et al.~\cite{MBVJ:11}. High-interaction
@@ -123,12 +123,12 @@ are able to process.
 
 \begin{itemize}
 
-  \item \noindent \emph{\textbf{Low Volume:}} Capable of supporting only a
+  \item \noindent \textit{\textbf{Low Volume:}} Capable of supporting only a
     small number of concurrent requests.  This type honeypot is often deployed
     in a research or teaching laboratory to investigate the details of a single
     attack type.
 
-  \item \noindent \emph{\textbf{High Volume:}} Capable of supporting a large
+  \item \noindent \textit{\textbf{High Volume:}} Capable of supporting a large
     number of concurrent requests. This type of honeypot is often deployed in
     an environment that results in the honeypot being subjected to high levels
     of usage from multiple sources. 
@@ -155,17 +155,17 @@ type, as shown in Table~\ref{table:HoneypotTypes}.
 \end{center}
 \end{table}
 
-This paper focuses on \emph{L}ow-\emph{I}nteraction-\emph{H}igh-\emph{V}olume
-(\texttt{LIHV}) and \emph{H}igh-\emph{I}nteraction-\emph{L}ow-\emph{V}olume
+This paper focuses on \textbf{L}ow-\textbf{I}nteraction-\textbf{H}igh-\textbf{V}olume
+(\texttt{LIHV}) and \textbf{H}igh-\textbf{I}nteraction-\textbf{L}ow-\textbf{V}olume
 (\texttt{HILV}) honeypots.  The other two types of honeypot are less
 interesting, for different reasons. On the one hand, a
-\emph{L}ow-\emph{I}nteraction-\emph{L}ow-\emph{V}olume (\texttt{LILV}) honeypot
+\textbf{L}ow-\textbf{I}nteraction-\textbf{L}ow-\textbf{V}olume (\texttt{LILV}) honeypot
 has limited utility. If required, its functionality can be provided by an
 \texttt{HILV} honeypot, at no significant extra cost. For example, an exercise
 in installing and testing a tool such as \texttt{Kippo}~\cite{SH:15} can be
 undertaken with an \texttt{HILV} honeypot just as easily as with an
 \texttt{LILV} honeypot.  On the other hand, a
-\emph{H}igh-\emph{I}nteraction-\emph{H}igh-\emph{V}olume (\texttt{HIHV})
+\textbf{H}igh-\textbf{I}nteraction-\textbf{H}igh-\textbf{V}olume (\texttt{HIHV})
 honeypot is expensive to deploy and time-consuming to reconfigure for different
 teaching scenarios. This type of honeypot is useful in a research environment,
 e.g. for use in long term Internet-based projects, but is not required for
@@ -200,18 +200,18 @@ Romney and Lanoy~\cite{LR:06}, Hiber et al.~\cite{HRS:08}, Wannous and
 Nakano~\cite{WN:10} and Marsa et al.~\cite{MGDL:13} discuss the use of a
 variety of virtual environments for the deployment of laboratory/honeypot
 platforms and networking architectures. In our experience, virtualisation works
-well for network simulation but limits the range of
-practical cybersecurity activities that can be undertaken. The limitations
-extend to deployment, resource utilisation, and data capture. The main problems
-arise because the resources in a virtual environment are shared. For example,
-if multiple experiments are performed simultaneously in a laboratory based on
-\texttt{VLAN} technology, unexpected results may be observed due to cross
-boundary effects. We have seen a MAC flood experiment running on one VLAN cause
-unexpected packet loss in an experiment running at the same time on another
-VLAN. This can be caused by exhaustion of a resource shared by VLANs using the
-same switch, e.g. the switch's MAC table or backplane. This issue should cause
-concern to anyone considering performing cybersecurity experiments on a VLAN
-connected to their main university campus network.
+well for network simulation but limits the range of practical cybersecurity
+activities that can be undertaken. The limitations extend to deployment,
+resource utilisation, and data capture. The main problems arise because the
+resources in a virtual environment are shared. For example, if multiple
+experiments are performed simultaneously in a laboratory based on \texttt{VLAN}
+technology, unexpected results may be observed due to cross boundary effects.
+We have seen a MAC flood experiment running on one VLAN cause unexpected packet
+loss in another experiment running at the same time on another VLAN. This can
+be caused by exhaustion of a resource shared by VLANs using the same switch,
+e.g. the switch's MAC table or backplane. This issue should cause concern to
+anyone considering performing cybersecurity experiments on a VLAN connected to
+their main university campus network.
 
 Experiments in a virtual environment may breach a sandboxed virtual host, so
 impacting on other experiments. The physical networking components of a virtual
@@ -253,7 +253,7 @@ Lee et al.~\cite{LUFC:11} discuss an approach based on a simple physical
 environment is very popular for cybersecurity competitions in which teams can
 compete in activities such as capture-the-flag or time trials. The environment
 provides limited access to network traffic, which compromises its effectiveness
-as a tool for the anaysis of specific attacks, but it does provide users with a
+as a tool for the analysis of specific attacks, but it does provide users with a
 platform for trying out attacks, usually using well established tool-sets, such
 as those provided by \texttt{Kali Linux}~\cite{OS:17}. This type of platform
 works well for events such as those organised by the Cyber Security Challenge
@@ -280,9 +280,9 @@ attack techniques discussed by Spitner~\cite{LS:03}, as well as many others.
 \section{Laboratory Requirements}\label{sec:TeachingRequire}
 
 This section discusses the main requirements of the honeypot technologies and
-the general purpose network infrastructure for the delivery of networking and
+the general purpose network laboratory for the delivery of networking and
 cybersecurity modules. The teaching environment consists of three distinct
-components: The small scale \texttt{HILV} honeypots (\textit{requirements
+components: the small scale \texttt{HILV} honeypots (\textit{requirements
 1,2,3,4,5}), the \texttt{LIHV} honeypot (\textit{requirement 6}), and the
 general purpose networking laboratory (\textit{requirements 7,8}).
 
@@ -316,8 +316,8 @@ a honeynet~\cite{AA:15,FDF:15,KNC:15}.
 \noindent\textit{\textbf{Requirement 5}}:
 The honeypot must facilitate effective network traffic capture to ensure the
 integrity of any network analysis e.g.\ identifying network transactions in a
-website defacement or denial of service-based (\texttt{DoS} or \texttt{DDoS})
-attack, or spoofed packets such as in \texttt{ARP} poisoning for
+website defacement or denial of service (\texttt{DoS} or \texttt{DDoS})
+attack, or spoofed packets in \texttt{ARP} poisoning for
 man-in-the-middle (\texttt{MitM}) attacks~\cite{PS:16,RSKA:16}.
 
 \subsection{\texttt{LIHV} Honeypot}\label{subsec:LabHoneypot}
@@ -329,21 +329,21 @@ and test their own tools.
 
 \subsection{General Networking Laboratory}\label{subsec:GeneralLab}
 
-\noindent\textit{\textbf{Requirement 7}}: There must be a flexible
-re-configurable base laboratory environment, isolated from the main university
+\noindent\textit{\textbf{Requirement 7}}: There must be a flexible,
+reconfigurable, base laboratory environment, isolated from the main university
 campus network, for students to carry out their normal studies of networks,
 operating systems and network services. Students require administrative access
 to the basic networking equipment such as routers, switches, and desktop
 machines for installation and configuration of general purpose tools and
 virtual environments. These activities would normally be prohibited on a
-University campus network~\cite{MGDL:13}. This is the case at Northumbria
+university campus network~\cite{MGDL:13}. This is the case at Northumbria
 University, although limited access is provided to staff rooms via campus
-\texttt{VLAN} connections. However, these connections are to phased out in
-2018. There also needs to be a facility to quickly restore a standard software
-environment to all devices.  
+\texttt{VLAN} connections. However, these connections are to be phased out 
+in~2018. There also needs to be a facility to deploy a standard software
+environment to all devices with minimal administrative intervention.  
 
 \noindent\textit{\textbf{Requirement 8}}: The laboratory network should
-implement a security policy, independent of the standard University policy,
+implement a security policy, independent of the standard university policy,
 controlling access to the Internet. This is to allow students to access
 security sites and relevant software packages. Many academic networks block
 access to cybersecurity tool sites from their specialist and general access
@@ -361,13 +361,13 @@ of honeypot architecture.
 
 \begin{itemize}
 
-  \item \noindent \emph{\textbf{LILV}} This type of honeypot is used when a
+  \item \noindent \textit{\textbf{LILV}} This type of honeypot is used when a
     basic testing platform is required to identify how a service is being
     attacked but no other interactions need to be investigated. For example, a
     software system, such as \texttt{Kippo}~\cite{SH:15}, can be studied to
     discover how it logs transactions to a file or a database. 
 
-  \item \noindent \emph{\textbf{LIHV}} This type of honeypot is used when
+  \item \noindent \textit{\textbf{LIHV}} This type of honeypot is used when
     carrying out analysis of a high volume of service requests while capturing
     only a limited amount of service and system activity data, e.g.\ when
     analysing multiple concurrent authentication attacks on an
@@ -377,16 +377,16 @@ of honeypot architecture.
     and xHydra~\cite{RS:15} and to be a target when they are developing their
     own tools such as an authentication-based botnet.
 
-  \item \noindent \emph{\textbf{HILV}} This type of honeypot is used when there
+  \item \noindent \textit{\textbf{HILV}} This type of honeypot is used when there
     is a low volume of service requests but fine-grained data capture is
     required. For example, when investigating a \texttt{DNS} enumeration
     attack, a single \texttt{AXFR}~\cite{EL:10} query may be the only service
-    request required to initiate the attack but the effect of this query and
-    the high-level of activity it generates can be captured in great detail.  A
+    request required to initiate the attack, but the effect of this query, and
+    the high-level of activity it generates, can be captured in great detail.  A
     similar example is the profiling of a \texttt{Wordpress}~\cite{WP:17} site
     using \texttt{WPScan}~\cite{WT:17}.
 
-  \item \noindent \emph{\textbf{HIHV}} This type of honeypot is used when a
+  \item \noindent \textit{\textbf{HIHV}} This type of honeypot is used when a
     system is being thoroughly tested with a high volume of service requests
     (pressure testing) and involves large numbers of high-powered servers capable
     of supporting high levels of concurrent interactions. These honeypots
@@ -399,8 +399,8 @@ of honeypot architecture.
 \end{itemize}
 
 The two types of honeypot deployed in the laboratory are
-\emph{H}igh-\emph{I}nteraction-\emph{L}ow-\emph{V}olume (\texttt{HILV}) and the
-\emph{L}ow-\emph{I}nteraction-\emph{H}igh-\emph{V}olume (\texttt{LIHV}).
+\textit{H}igh-\textit{I}nteraction-\textit{L}ow-\textit{V}olume (\texttt{HILV}) and 
+\textit{L}ow-\textit{I}nteraction-\textit{H}igh-\textit{V}olume (\texttt{LIHV}).
 
 \subsection{\texttt{HILV} Honeypot}
 
@@ -426,20 +426,20 @@ consists of:
 
 \begin{itemize}
     \item \noindent A router for traffic management to and from the laboratory
-      infrastructure via \texttt{NAT} and address forw[h]arding. (connected via the
+      infrastructure via \texttt{NAT} and address forwarding. (connected via the
       green cable). 
     \item \noindent 4 Raspberry Pi boards~\cite{RASP:17} for service deployment.
     \item \noindent A managed switch for packet capture:
     \begin{itemize}
         \item \noindent 1 port (port 8) setup as a monitor usually connected to
-          a PC running \texttt{TCPDump} or \texttt{Wireshark} (Red Cable).
+          a PC running \texttt{TCPDump} or \texttt{Wireshark} (red cable).
         \item \noindent All other ports are mirrored to the monitor (ports
           1--7).
         \item \noindent 1 port (port 7) links the switch and router.
         \item \noindent 4 ports (ports 1--4) are connected to the 4 Raspberry Pi 
         servers.
         \item \noindent 2 spare ports (ports 5,6) are available for additional
-          services, clients, or devices to be added (Blue Cables).
+          services, clients, or devices to be added (blue cables).
     \end{itemize}
 \end{itemize}
 
@@ -572,14 +572,14 @@ architecture for packet capture.  \newline
 
 \noindent\textit{Port mirroring}: Switches maintain an in-memory table of ports
 and \texttt{MAC} addresses to support the efficient delivery of frames. This
-ensures that packets are transferred port to port rather than being broadcast.
-port to port communications are known as ``virtual circuits''. This technology
+ensures that packets are transferred port to port rather than being broadcast
+(port to port communications are known as ``virtual circuits''). This technology
 complicates the process of packet capture. When using a honeypot, packet
 capture is a vital part of the architecture for the analysis of any
 network-based attack vector. Using a managed switch (as discussed above), it is
 possible to configure the ports on the switch to be mirrored to a specific
 port, as shown in Figs.~\ref{fig:HPOverview} and~\ref{fig:throttling}. This
-allows all the network activity to be captured and analysed~(\emph{Requirement
+allows all the network activity to be captured and analysed~(\textit{Requirement
 8}). Switches can implement mirroring in one of two ways. Firstly, a
 monitor-only port can be provided, where the transmission capability of the
 port is removed, (as in the case of an \texttt{HP 1810-G}). This type of
@@ -599,12 +599,12 @@ the mirrored traffic is forwarded.  Switches are designed to provide maximum
 transfer speed between ports. This is achieved through the switch's backplane.
 If the throughput of traffic on the mirrored ports exceeds the bandwidth of the
 port to which the traffic is mirrored, then frame loss at this port is
-inevitable. To prevent this occurring the switch must be configured to throttle
+inevitable. To prevent this occurring, the switch must be configured to throttle
 the throughput on the mirrored ports so as not to overwhelm the backplane.
 Figure~\ref{fig:throttling} shows the basic configuration of a throttled
 environment. The port which has the frames forwarded to it must be configured
 to run at a speed that exceeds the total bandwidth of the mirrored ports. The
-effect of this is that as frames are transferred between ports they are
+effect of this is that as frames are transferred between ports, they are
 reliably replicated via the backplane to the monitor port. This configuration
 satisfies requirement 8. 
 \newline
@@ -670,9 +670,11 @@ to support directed learning tasks and also to support collaborative ventures.
 
 \section{General Networking Laboratory}\label{sec:netlab}
 \subsection{Overview}
-The flexible laboratory environment needs to provide a re-configurable physical
-networking layer. This is provided by a structured cabling architecture as
-shown in~Fig.~\ref{fig:Overview1}. 
+The flexible laboratory environment comprises a secured communications cabinet,
+several open-access, teaching cabinets, and benches with desktop PCs for
+student use. The physical networking layer between devices is reconfigurable.
+This is achieved by the use of a structured cabling
+architecture~(Fig.~\ref{fig:Overview1}). 
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{Images/Infrastructure.pdf}
 {General networking laboratory overview\label{fig:Overview1}}
@@ -687,7 +689,7 @@ shown in~Fig.~\ref{fig:Overview1}.
 
 Internet access is provided by cascading each cabinet's ``internet switch'' to
 the central communication cabinet's ``internet switch''. A logical view of the
-internet facilities are shown in Fig.~\ref{fig:NetworkLogical}.
+internet facilities is shown in Fig.~\ref{fig:NetworkLogical}.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7cm]{Images/NetworkLogical.pdf}
 {Logical view of internet access\label{fig:NetworkLogical}}
@@ -733,8 +735,8 @@ used to manage the \texttt{ISP} connection.
 
 Students have unrestricted access to the other cabinets, each of which is
 linked to a laboratory bench supporting 8--10 students, These cabinets contain
-a selection of switches, routers, \texttt{IP} Telephony, \texttt{IDS}, and
-Firewall equipment that is required for general network architecture modules as
+a selection of switches, routers, \texttt{IP} telephony, \texttt{IDS}, and
+firewall equipment that is required for general computer networking modules, as
 shown in Fig.~\ref{fig:Cabinet}.  They are linked back to the communications
 cabinet to provide internet access for the benches. Access to the internet from
 the desktop is achieved through a \texttt{NAT} connection from the \texttt{ISP}
@@ -778,7 +780,7 @@ the network requires, as a minimum, \texttt{DNS}~\cite{RA:11} and
 \texttt{DHCP}~\cite{DL:02} services. These services are deployed across three
 small-scale, 1U servers (\texttt{HPE ProLiant DL360 Gen9 Server}~\cite{HPE:17}). Two
 servers are located in the communications cabinet as shown
-in~Fig.~\ref{fig:Overview1}. One server supports \texttt{DHCP} and \texttt{DNS}
+in~Fig.~\ref{fig:Overview1}. One server supports \texttt{DHCP} and \texttt{DNS},
 which are integrated to create a \texttt{DDNS}~\cite{SV:06} environment. The
 second server acts as the secondary \texttt{DNS} server. The third server is
 located in the \texttt{LIHV} honeypot cabinet and acts as a further secondary
@@ -809,38 +811,36 @@ deployments require the virtualisation software to support network card
 bridging to allow the virtual machines to be ``physically'' connected to the
 laboratory infrastructure.  Subjects that require a laboratory
 ``search-by-name'' facility (\texttt{DNS} and \texttt{rDNS}) such as Java
-Sockets and C Sockets programming are supported by the \texttt{DDNS}
+sockets and C sockets programming are supported by the \texttt{DDNS}
 implementation as discussed in~Sect.~\ref{InfraService}.
 
-\section{Operational Results and supported teaching}\label{sec:Results}
+\section{Experience of laboratory use in teaching}\label{sec:Results}
 
 The general laboratory infrastructure has been in place, and actively used, for
 10 years. The \texttt{LIHV} honeypot has been in place for 9 years. The
 honeypot was developed to support a cybersecurity module on an undergraduate
 networking programme and has been used successfully in the teaching of basic
 attack vectors such as port analysis, banner grabbing and service interaction
-(\texttt{FTP} and \texttt{HTTP}) for taught modules and projects.
+(\texttt{FTP} and \texttt{HTTP}) both for taught modules and student projects.
 
 The \texttt{HILV} honeypots were designed and built 6 years ago and have been
-used since 2012 (5 years) on undergraduate networking programmes. They have been
-deployed in activities such as service redirection attacks, amplification
-attacks and man-in-the-middle scenarios.
-
-The use of Raspberry Pi boards in the \texttt{HILV} honeypots has allowed
-diverse subjects to be taught more easily due to their use of removable media
-to store the operating system. The setup time for laboratories and teaching
-sessions has been dramatically reduced compared to our previous approach of
-using small clusters of PC's with removable drives, this is reflected in the
-students response to the configuration of the \texttt{LIHV} as discussed in
-section~\ref{sec:Feedback}.
-
-There have been several hardware changes to the \texttt{HILV} honeypots over
-this time but the basic architecture has remained unchanged. The latest change
-involved an upgrade from Raspberry Pi 2 to Raspberry Pi 3. The cost of layer 2
-switches and their availability has also improved and they are now more
-affordable. As new honeypots are fabricated, \texttt{TP-LINK} switches are being used in
-preference to the more expensive HP switches. The \texttt{TP-LINK} switches do not
-provide a fully implemented monitor port; this requires the inclusion of a
+used since 2012 (5 years) on undergraduate networking and cybersecurity
+programmes. They have been deployed in activities such as service redirection
+attacks, amplification attacks and man-in-the-middle scenarios.  The use of
+Raspberry Pi boards in the \texttt{HILV} honeypots has allowed diverse subjects
+to be taught more easily due to their use of removable media to store the
+operating system. The setup time for laboratories and teaching sessions has
+been significantly reduced, in comparison with our previous approach of using
+small clusters of PC's with removable drives. This is reflected in the
+students' response to the configuration of the \texttt{HILV} honeypot, as
+discussed in section~\ref{sec:Feedback}.  There have been several hardware
+changes to the \texttt{HILV} honeypots over this time but the basic
+architecture has remained unchanged. The latest change involved an upgrade from
+Raspberry Pi 2 to Raspberry Pi 3. The cost of layer 2 switches and their
+availability has also improved and they are now more affordable. As new
+honeypots are fabricated, \texttt{TP-LINK} switches are being used in
+preference to the more expensive HP switches. The \texttt{TP-LINK} switches do
+not provide a fully implemented monitor port; this requires the inclusion of a
 network tap as shown in Fig.~\ref{fig:HPOverview}.
 
 \subsection{Supported Teaching\label{ResourceSupport}}
@@ -850,12 +850,12 @@ includes undergraduates studying networking ($\approx$40) and cybersecurity
 ($\approx$150), and postgraduates studying networking ($\approx$20). Each of our
 programmes is delivered in modules. A typical undergraduate programme runs
 around 10 modules concurrently e.g.\ networking technology (years 1, 2, 3 \&
-4 with MComp), security case projects (Year 2), Sockets programming (year 3).
+4 with MComp), security case projects (Year 2), sockets programming (year 3).
 Each module requires $\approx$3~hours contact per week and $\approx$3~hours of
 directed learning, which may require laboratory time.  In addition, the
 laboratory supports many undergraduate and postgraduate cybersecurity projects
 ($\approx$80), including cyber attack analysis and general cybersecurity research
-such as biometric-based multi-factor authentication and \texttt{IoT} (Internet
+such as biometric-based, multi-factor authentication and \texttt{IoT} (Internet
 of Things) security projects.
 
 \subsection{Supported Modules\label{Modules}}
@@ -865,15 +865,15 @@ programmes, involving routing, switching, \texttt{VLAN} deployment,
 \texttt{MPLS} networking and \texttt{IP} telephony are successfully taught
 using the general networking laboratory infrastructure.
 
-Network service deployment using server operating systems (Windows and Linux)
-for both undergraduate and postgraduate programmes is taught successfully in
+Network service deployment, using server operating systems (Windows and Linux),
+for both undergraduate and postgraduate programmes, is taught successfully in
 the environment using virtual machine technologies. The network service
 deployments include load-balanced \texttt{HTTP}, network file system
 deployments (\texttt{NFS} and \texttt{SMB}), replication based \texttt{MySQL}
 services and large scale \texttt{DNS} deployments.
 
 The \texttt{HILV} honeypot environment has allowed aspects of network-based
-infrastructure, specifically broadcast-based network services, to be taught as
+infrastructure, specifically broadcast network services, to be taught as
 a practical implementation rather than only as a simulation, and has allowed
 students to develop complete network infrastructures integrated to the
 Internet.
@@ -884,8 +884,8 @@ spoofing or resource exhaustion through the volume of traffic generation.
 
 The \texttt{HILV} honeypots have also allowed analysis of live attacks from the
 Internet without impacting on the local laboratory network. Activities such as
-port scanning are passed through directly to the \texttt{HILV} honeypot without
-exposing the laboratory infrastructure. Implementing multiple \texttt{HILV}
+port scanning are passed through directly to the \texttt{HILV} honeypot, without
+exposing the laboratory infrastructure. The use of multiple \texttt{HILV}
 honeypots has allowed profiles of subnet scanning and attacks to be analysed by
 students, providing them with a rich environment for experimentation and
 analysis.
@@ -896,35 +896,35 @@ students who move to the final year of the cybersecurity undergraduate
 programme tend to carry out research-based projects. Usually these involve the
 use of the basic \texttt{HILV} honeypot, but some projects add additional
 components to the honeypot such as firewalls (pfSense~\cite{PFSENSE:18} or
-ipFire~\cite{IPFIRE:18}) or wireless access points for the analysis of phone or
-tablet based application attacks. A sample of recent projects is described below.
+ipFire~\cite{IPFIRE:18}) or wireless access points for the analysis of smartphone or
+tablet-based application attacks. A sample of recent projects is described below.
 
 \begin{itemize} 
-  \item \noindent \emph{Multi-Tiered defence analysis of a simulated cyber
+  \item \noindent \textit{Multi-Tiered defence analysis of a simulated cyber
     attack.} This project involved configuring the \texttt{HILV} honeypots to
-    support a \texttt{IPFire} (software based firewall technology) and
+    support an \texttt{IPFire} (software based firewall technology), and
     investigating potential tunnelling techniques that could compromise a
-    military grade network deployment.  
-  \item \noindent \emph{Development of a small \texttt{IDS}.} This project
+    military grade network.  
+  \item \noindent \textit{Development of a small \texttt{IDS}.} This project
     involved developing a \texttt{libpcap-}based application to run on one of the
     Raspberry Pi boards. The application monitored network
     traffic to identify a \texttt{SYN} flood attack using a simple window-based
     statistical analysis.  
-    \item \noindent \emph{Attack on a secure \texttt{IoT} protocol} This
+    \item \noindent \textit{Attack on a secure \texttt{IoT} protocol.} This
       project involved developing a network of \texttt{IoT} devices for
-      environment analysis (temperature and humidity) and identifying the
-      encrypted payloads within the traffic (\texttt{MQTT}) which was then attacked using a block
-      decryption technique.  
-    \item \noindent \emph{Development of an \texttt{IDS} for a full subnet
-      \texttt{MitM} attack} This project involved developing a stateful 
+      environment analysis (temperature and humidity), and identifying the
+      encrypted payloads within the traffic (\texttt{MQTT}), which were then
+      attacked using a block decryption technique.
+    \item \noindent \textit{Development of an \texttt{IDS} for a full subnet
+      \texttt{MitM} attack.} This project involved developing a stateful 
       \texttt{IDS} using \texttt{libpcap} to identify spoofed \texttt{ARP} packets.  
-    \item \noindent \emph{Development of a \texttt{DOS} tool that attempts to
-      prevent detection from an \texttt{IDS}} This project involved developing
+    \item \noindent \textit{Development of a \texttt{DOS} tool that attempts to
+      prevent detection from an \texttt{IDS}.} This project involved developing
       a \texttt{RAW} sockets application that crafted packets to
       replicate valid traffic within the subnet environment.  
-     \item \noindent \emph{Analysis of a \texttt{DNS} amplification attack} This
-       project involved configuring a vulnerable \texttt{DNS} environment and
-       executing an attack and analysing the bandwidth effect of the network.
+     \item \noindent \textit{Analysis of a \texttt{DNS} amplification attack.} This
+       project involved configuring a vulnerable \texttt{DNS} environment,
+       executing an attack, and analysing the bandwidth effect on the network.
 \end{itemize}
 
 \subsection{Student Feedback}\label{sec:Feedback}
@@ -934,33 +934,32 @@ opinion about the effectiveness of the laboratory configurations. We canvassed
 a cohort of 48 students of whom 29 responded. The results of the survey are
 discussed briefly below.
 \begin{itemize}
-  \item \noindent\emph{Utility:} Students were asked how useful they found the
+  \item \noindent\textit{Utility:} Students were asked how useful they found the
 \texttt{HILV} honeypot for the practical research component of the module. All
 students found the honeypot useful, with 89.66\% rating the usefulness as very
 good or excellent. This result matched our expectations, as students usually
 report that they learn better when they have access to physical equipment. 
-The results are shown in Fig.~\ref{fig:Useful}
-  \item \noindent\emph{Ease of use:} Students were asked how easy it was to
+  \item \noindent\textit{Ease of use:} Students were asked how easy it was to
 configure the \texttt{HILV} honeypot. This question related to scenarios in
 which students were provided with a basic configuration and were required to
 extend and adapt it to their own requirements. 98\% of students reported that
 it was not difficult to configure the honeypot, with the majority indicating
-that they found it easy or very easy. The results are shown in Fig.~\ref{fig:Ease}
+that they found it easy or very easy. 
 \par\noindent This ease of use can be attributed to the following factors.
   \begin{itemize} 
     \item The base configuration of the honeypot has a fixed configuration for
-      the router and switch, which allows students to sign out any of the
+      its router and switch. This allows students to sign out any of the
       honeypots from the loans facility and use it immediately in a
       `plug-and-play' fashion for many exercises.  
     \item The students created their own base servers from a set of images
       distributed from the laboratory \texttt{NAS} drive.  Following each
-      practical session the students retained the \texttt{SD} cards for use at
+      practical session, the students retained the \texttt{SD} cards for use at
       the next session. The \texttt{SD} cards provided a stateful configuration
       of their work.  
     \item The students were able to backup their entire project using a ``dump''
       (\texttt{dd}) of the \texttt{SD} cards.
   \end{itemize}
-  \item \noindent\emph{Previous experience and likely future use}: Students
+  \item \noindent\textit{Previous experience and likely future use}: Students
 were asked if they had used a honeypot earlier in their studies. Most students
 (93\%, 27/29) had not used a honeypot before their undergraduate studies and
 therefore had no preconception of what to expect. In contrast, when asked if
@@ -972,24 +971,17 @@ pedagogical benefits of our approach but these preliminary results are an
 indication of a very positive student reaction to their experience in our
 laboratory.
 
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/Useful.pdf}
-{How useful were the honeypots?\label{fig:Useful}}
-
-\Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/Ease.pdf}
-{What were the honeypots like to setup?\label{fig:Ease}}
-
 \section{Conclusion and Future Work}\label{sec:ConclusionFuture}
 
-The development of the \texttt{HILV} honeypot environment and its integration
-with the general purpose networks lab and the \texttt{LIHV} laboratory based
-honeypot has proved successful for both teaching and research. The cost of the
-\texttt{HILV} honeypot deployment has been reduced to such an extent that
-rather than the laboratory supporting the single \texttt{LIHV} honeypot
-platform, which has to be reconfigured between sessions, the laboratory can now
-support multiple honeypot deployments that are highly configurable and
-portable.
+The development of the \texttt{HILV} honeypot environment, and its integration
+with the general purpose networks lab and the \texttt{LIHV} laboratory-based
+honeypot, has proved successful for both teaching and research. The cost of the
+\texttt{HILV} honeypot has been reduced to such an extent that, rather than the
+laboratory supporting a single (\texttt{LIHV}) honeypot, which has to be
+reconfigured between sessions, the laboratory can now support multiple
+honeypots that are highly configurable and portable.
 
-As the \texttt{HILV} honeypots are small scale and low cost, the equipment is
+As the \texttt{HILV} honeypots are small-scale and low-cost, the equipment is
 permanently configured for teaching purposes. Each \texttt{HILV} honeypot is
 capable of supporting four students at a time to work on research-based modules
 and allows practical cybersecurity modules to be delivered more effectively.

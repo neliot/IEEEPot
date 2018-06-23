@@ -399,8 +399,7 @@ of honeypot architecture.
 \end{itemize}
 
 The two types of honeypot deployed in the laboratory are
-\textit{H}igh-\textit{I}nteraction-\textit{L}ow-\textit{V}olume (\texttt{HILV}) and 
-\textit{L}ow-\textit{I}nteraction-\textit{H}igh-\textit{V}olume (\texttt{LIHV}).
+\texttt{HILV} and \texttt{LIHV}. These are now presented in more detail.
 
 \subsection{\texttt{HILV} Honeypot}
 
@@ -653,8 +652,8 @@ simple authentication attacks using tools such as \texttt{Hydra} from within
 the \texttt{Kali Linux}~\cite{OS:17} toolset. This honeypot also provides a
 target for the development of bespoke authentication attack tools in the final
 year undergraduate cybersecurity modules.  This server is accessed directly in
-the laboratory or via the Internet as a bastion server~\cite{MB:05}. This
-allows access from within the laboratory but also from outside the laboratory
+the laboratory, or via the Internet, as a bastion server~\cite{MB:05}. This
+allows access from within the laboratory, but also from outside the laboratory
 to support directed learning tasks and also to support collaborative ventures.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7cm]{Images/Infrastructure2.pdf}
@@ -674,7 +673,10 @@ The flexible laboratory environment comprises a secured communications cabinet,
 several open-access, teaching cabinets, and benches with desktop PCs for
 student use. The physical networking layer between devices is reconfigurable.
 This is achieved by the use of a structured cabling
-architecture~(Fig.~\ref{fig:Overview1}). 
+architecture~(Fig.~\ref{fig:Overview1}).  Internet access is provided by
+cascading each cabinet's ``internet switch'' to the central communication
+cabinet's ``internet switch''. A logical view of the internet facilities is
+shown in Fig.~\ref{fig:NetworkLogical}.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=14cm]{Images/Infrastructure.pdf}
 {General networking laboratory overview\label{fig:Overview1}}
@@ -687,9 +689,6 @@ architecture~(Fig.~\ref{fig:Overview1}).
 %   \end{center}
 %   \end{figure*}  
 
-Internet access is provided by cascading each cabinet's ``internet switch'' to
-the central communication cabinet's ``internet switch''. A logical view of the
-internet facilities is shown in Fig.~\ref{fig:NetworkLogical}.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7cm]{Images/NetworkLogical.pdf}
 {Logical view of internet access\label{fig:NetworkLogical}}
@@ -740,7 +739,11 @@ firewall equipment that is required for general computer networking modules, as
 shown in Fig.~\ref{fig:Cabinet}.  They are linked back to the communications
 cabinet to provide internet access for the benches. Access to the internet from
 the desktop is achieved through a \texttt{NAT} connection from the \texttt{ISP}
-router in the communications cabinet. 
+router in the communications cabinet.  The structured cabling allows the
+resources of each cabinet within the laboratory to be linked to the desktop
+through structured cabling ports.  Cross-cabinet connections ensure specialist
+resources are flexibly available to all benches e.g.\ switches, routers,
+firewalls, and \texttt{IDS} (Intrusion Detection Systems) etc.
 
 \Figure[t!](topskip=0pt, botskip=0pt, midskip=0pt)[width=7.5cm]{Images/Cabinet.pdf}
 {General networking laboratory cabinet\label{fig:Cabinet}}
@@ -753,17 +756,12 @@ router in the communications cabinet.
 %   \end{minipage}
 % \end{figure}
 
-The structured cabling allows the resources of each cabinet within the
-laboratory to be linked to the desktop through structured cabling ports.
-Cross-cabinet connections ensure specialist resources are flexibly available to
-all benches e.g.\ switches, routers, firewalls, and \texttt{IDS} (Intrusion
-Detection Systems) etc.
 
 \subsection{Address Range Support}
 
 The use of virtualisation at the desktop (\texttt{GNS3}~\cite{GNS3:17},
 \texttt{VMWare}~\cite{VMWARE:17} and \texttt{VirtualBox}~\cite{O:17}), to
-support operating systems and networking modules, requires a large number of
+support operating systems and networking modules, requires enough
 host addresses to support a large number of students deploying statically
 addressed virtual hosts. The base laboratory network infrastructure is
 configured as a single class B subnet.  This provides 65,534 addresses, which
@@ -778,17 +776,16 @@ requiring address reconfiguration.
 To support the study of operating systems and other general computing subjects,
 the network requires, as a minimum, \texttt{DNS}~\cite{RA:11} and
 \texttt{DHCP}~\cite{DL:02} services. These services are deployed across three
-small-scale, 1U servers (\texttt{HPE ProLiant DL360 Gen9 Server}~\cite{HPE:17}). Two
-servers are located in the communications cabinet as shown
-in~Fig.~\ref{fig:Overview1}. One server supports \texttt{DHCP} and \texttt{DNS},
-which are integrated to create a \texttt{DDNS}~\cite{SV:06} environment. The
-second server acts as the secondary \texttt{DNS} server. The third server is
-located in the \texttt{LIHV} honeypot cabinet and acts as a further secondary
-\texttt{DNS} server.
-
-The communications cabinet also contains a 1U server that provides the
-laboratory intranet (\texttt{LAMP} based) service, along with general purpose
-\texttt{MySQL} database services for the intranet and module content delivery.
+small-scale, 1U servers (\texttt{HPE ProLiant DL360 Gen9
+Server}~\cite{HPE:17}). Two servers are located in the communications cabinet
+as shown in~Fig.~\ref{fig:Overview1}. One server supports \texttt{DHCP} and
+\texttt{DNS}, which are integrated to create a \texttt{DDNS}~\cite{SV:06}
+environment. The second server acts as the secondary \texttt{DNS} server. The
+third server is located in the \texttt{LIHV} honeypot cabinet and acts as a
+further secondary \texttt{DNS} server.  The communications cabinet also
+contains a 1U server that provides the laboratory intranet (\texttt{LAMP}
+based) service, along with general purpose \texttt{MySQL} database services for
+the intranet and module content delivery.
 
 Deployment of known desktop equipment is coordinated by creating reservation
 entries in the \texttt{DHCP} service. The \texttt{DHCP} server then
